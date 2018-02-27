@@ -9,10 +9,6 @@
 </head>
 <body>
 <h1>注册</h1>
-<form action="sign">
-
-</form>
-
 
 <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/bootstrap/js/bootstrap.min.js' ?>"></script>
