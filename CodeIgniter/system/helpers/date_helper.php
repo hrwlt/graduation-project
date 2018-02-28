@@ -89,7 +89,7 @@ if ( ! function_exists('mdate'))
 	 * This function is identical to PHPs date() function,
 	 * except that it allows date codes to be formatted using
 	 * the MySQL style, where each code letter is preceded
-	 * with a percent sign:  %Y %m %d etc...
+	 * with a percent register:  %Y %m %d etc...
 	 *
 	 * The benefit of doing dates this way is that you don't
 	 * have to worry about escaping your text letters that

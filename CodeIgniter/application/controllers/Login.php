@@ -15,21 +15,20 @@ class Login extends CI_Controller {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
         $identity = $this->input->post('identity');
-        if (!$username) {
-            echo '用户名不能为空！';
-        }
-        if (!$password) {
-            echo '密码不能为空！';
-        }
 
         //加载数据库
         $this->load->model('user_model');
         $row = $this->user_model->get_by_username_password($username, $password, $identity);
         if ($row) {
-            echo 'Success!';
+            $obj['message'] = '登录成功！';
+            $obj['success'] = TRUE;
         } else {
-            echo 'Failed!';
+            $obj['message'] = '请输入正确的用户名或密码！';
+            $obj['success'] = FALSE;
         }
+
+        echo json_encode($obj);
+
     }
 
 }

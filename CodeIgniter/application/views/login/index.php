@@ -8,29 +8,23 @@
     <title><?php echo $title; ?></title>
 </head>
 <body>
-<div class="logo">
-    <img src="<?= base_url() . 'resource/login/login_imgs/login_logo.png' ?>">
-</div>
-<form action="login" method="post">
-    <div class="header">请使用平台账号登录</div>
-    <div class="body">
-        <div class="form-group">
-            <input name="username" type="text" placeholder="用户名">
-        </div>
-        <div class="form-group">
-            <input name="password" type="password" placeholder="密码">
-        </div>
-        <div class="form-radio">
-            <input type="radio" name="identity" value="0" checked="checked" class="first-radio">教师
-            <input type="radio" name="identity" value="1" class="second-radio">学生
-        </div>
+<form id="myForm" method="post" action="">
+    <div>
+        <input id="username" name="username" type="text" placeholder="用户名">
     </div>
-    <div class="form-button">
-        <button type="submit" class="btn bg">登 录</button>
-        <button type="button" onclick="sign()" class="btn sign">注 册</button>
+    <div>
+        <input id="password" name="password" type="password" placeholder="密码">
+    </div>
+    <div>
+        <input name="identity" type="radio" value="0" checked="checked">教师
+        <input name="identity" type="radio" value="1">学生
+    </div>
+    <div>
+        <input id="login" type="button" value="登录">
+        <a href="../register/index">立即注册</a>
     </div>
 </form>
-<div class="footer">&copy;2018 —— HZNU DODO</div>
+<div>&copy;2018 —— HZNU DODO</div>
 <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/bootstrap/js/bootstrap.min.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/login/login.js' ?>"></script>
