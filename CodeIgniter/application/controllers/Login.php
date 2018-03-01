@@ -22,6 +22,9 @@ class Login extends CI_Controller {
         if ($row) {
             $obj['message'] = '登录成功！';
             $obj['success'] = TRUE;
+            // 添加session
+            $session_array = ['username' => $username, 'identity' => $identity, 'login_status' => TRUE];
+            $this->session->set_tempdata($session_array, NULL, 86400);
         } else {
             $obj['message'] = '请输入正确的用户名或密码！';
             $obj['success'] = FALSE;
