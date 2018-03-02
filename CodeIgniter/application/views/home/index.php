@@ -9,6 +9,9 @@
 </head>
 <body>
 <h1>主页</h1>
+<p><?php echo $username; ?></p>
+<p><?php echo $identity; ?></p>
+<a href="logout">退出登录</a>
 <div>&copy;2018 —— HZNU DODO</div>
 <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/bootstrap/js/bootstrap.min.js' ?>"></script>

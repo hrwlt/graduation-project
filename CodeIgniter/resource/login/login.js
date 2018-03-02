@@ -5,9 +5,8 @@ $("#login").click(function () {
         url: "login",
         data: $('#myForm').serialize(),
         success: function (data) {
-            if (data.success == TRUE) {
-                alert(data.message);
-                window.location.href('http://' + location.hostname + '/home/index');
+            if (data.success == true) {
+                window.location.href = 'http://' + window.location.hostname + '/home/index';
             } else {
                 alert(data.message);
             }

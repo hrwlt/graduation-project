@@ -1014,7 +1014,7 @@ class CI_Jquery extends CI_Javascript {
 	/**
 	 * Script Tag
 	 *
-	 * Outputs the script tag that loads the jquery.js file into an HTML document
+	 * Outputs the script tag that loads the jquery-2.1.4.min.js file into an HTML document
 	 *
 	 * @param	string	$library_src
 	 * @param	bool	$relative
