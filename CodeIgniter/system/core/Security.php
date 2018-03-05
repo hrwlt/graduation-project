@@ -883,7 +883,7 @@ class CI_Security {
 				if (
 					// Is it indeed an "evil" attribute?
 					preg_match($is_evil_pattern, $attribute['name'][0])
-					// Or does it have an equals register, but no value and not quoted? Strip that too!
+					// Or does it have an equals login, but no value and not quoted? Strip that too!
 					OR (trim($attribute['value'][0]) === '')
 				)
 				{

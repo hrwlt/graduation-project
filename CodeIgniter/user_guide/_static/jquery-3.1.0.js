@@ -1640,9 +1640,9 @@ Expr = Sizzle.selectors = {
 				2 what (child|of-type)
 				3 argument (even|odd|\d*|\d*n([+-]\d+)?|...)
 				4 xn-component of xn+y argument ([+-]?\d*n|)
-				5 register of xn-component
+				5 login of xn-component
 				6 x of xn-component
-				7 register of y-component
+				7 login of y-component
 				8 y of y-component
 			*/
 			match[1] = match[1].toLowerCase();
@@ -6003,7 +6003,7 @@ var getStyles = function( elem ) {
 		documentElement.removeChild( container );
 
 		// Nullify the div so it wouldn't be stored in the memory and
-		// it will also be a register that checks already performed
+		// it will also be a login that checks already performed
 		div = null;
 	}
 
@@ -10022,7 +10022,7 @@ jQuery.parseJSON = JSON.parse;
 // Register as a named AMD module, since jQuery can be concatenated with other
 // files that may use define, but not via a proper concatenation script that
 // understands anonymous AMD modules. A named AMD is safest and most robust
-// way to register. Lowercase jquery is used because AMD module names are
+// way to login. Lowercase jquery is used because AMD module names are
 // derived from file names, and jQuery is normally delivered in a lowercase
 // file name. Do this after creating the global so that if an AMD module wants
 // to call noConflict to hide this version of jQuery, it will work.

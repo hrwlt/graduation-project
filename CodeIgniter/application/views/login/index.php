@@ -1,32 +1,74 @@
+<!DOCTYPE html>
 <html>
 <head>
+    <title>登录注册</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="text/css" rel="stylesheet" href="<?= base_url() . 'resource/bootstrap/css/bootstrap.min.css' ?>"/>
-    <link type="text/css" rel="stylesheet" href="<?= base_url() . 'resource/login/login.css' ?>"/>
-    <title><?php echo $title; ?></title>
+    <link type="text/css" rel="stylesheet" href="<?= base_url() . 'resource/login/login.css' ?>">
 </head>
 <body>
-<form id="myForm" method="post" action="">
-    <div>
-        <input id="username" name="username" type="text" placeholder="用户名">
+<section>
+    <h1>HZNU-DODO试题平台</h1>
+    <div class="stage">
+        <div class="cbImage">
+            <h3>找回密码</h3>
+            <form action="" method="post">
+                <input type="text" class="email" name="email" placeholder="邮箱" required="">
+                <input type="text" class="number" name="phone_number" placeholder="手机号码" required="">
+                <input type="button" class="done" value="提交">
+            </form>
+        </div>
+        <div class="cbImage active">
+            <h3>登录</h3>
+            <form id="loginForm" action="" method="post">
+                <div>
+                    <input id="username" name="username" type="text" placeholder="用户名" required="">
+                </div>
+                <div>
+                    <input id="password" name="password" type="password" placeholder="密码" required="">
+                </div>
+                <div class="radioText">
+                    <input name="identity" type="radio" value="0" checked="checked"><span>教师</span>
+                    <input name="identity" type="radio" value="1"><span>学生</span>
+                </div>
+                <div>
+                    <input id="login" type="button" value="登录">
+                </div>
+            </form>
+        </div>
+        <div class="cbImage">
+            <h3>注册</h3>
+            <form id="registerForm" action="" method="post">
+                <div>
+                    <input type="text" class="name" name="username" placeholder="用户名" required="">
+                </div>
+                <div>
+                    <input type="password" class="password" name="password" placeholder="密码" required="">
+                </div>
+                <div>
+                    <input type="password" class="password" name="confirm_password" placeholder="确认密码" required="">
+                </div>
+                <div>
+                    <input type="text" class="email" name="email" placeholder="邮箱" required="">
+                </div>
+                <div class="radioText">
+                    <input name="identity" type="radio" value="0" checked="checked">教师
+                    <input name="identity" type="radio" value="1">学生
+                </div>
+                <div>
+                    <input type="button" value="注册">
+                </div>
+            </form>
+        </div>
+        <div class="clear"></div>
     </div>
-    <div>
-        <input id="password" name="password" type="password" placeholder="密码">
+    <div class="clear"></div>
+    <div class="footer">
+        <p>&copy 2018 HZNU DODO All Design By HR</p>
     </div>
-    <div>
-        <input name="identity" type="radio" value="0" checked="checked">教师
-        <input name="identity" type="radio" value="1">学生
-    </div>
-    <div>
-        <input id="login" type="button" value="登录">
-        <a href="../register/index">立即注册</a>
-    </div>
-</form>
-<div>&copy;2018 —— HZNU DODO</div>
-<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="<?= base_url() . 'resource/bootstrap/js/bootstrap.min.js' ?>"></script>
-<script type="text/javascript" src="<?= base_url() . 'resource/login/login.js' ?>"></script>
+</section>
+<script src="<?= base_url() . 'resource/login/jquery-2.1.4.min.js' ?>"></script>
+<script src="<?= base_url() . 'resource/login/login.js' ?>"></script>
 </body>
 </html>
