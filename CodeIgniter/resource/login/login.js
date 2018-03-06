@@ -142,6 +142,8 @@
     })();
 })(jQuery);
 
+
+
 $("#login").click(function () {
     $.ajax({
         type: "POST",
@@ -165,7 +167,7 @@ $("#register").click(function () {
     $.ajax({
         type: "POST",
         dataType: "json",
-        url: "login",
+        url: "register",
         data: $('#registerForm').serialize(),
         success: function (data) {
             if (data.success == true) {

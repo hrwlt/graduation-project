@@ -57,7 +57,7 @@
                     <input name="identity" type="radio" value="1">学生
                 </div>
                 <div>
-                    <input type="button" value="注册">
+                    <input id="register" type="button" value="注册">
                 </div>
             </form>
         </div>
