@@ -1,0 +1,279 @@
+html, body, div, h1, h3, p, form, section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+.clear {
+    clear: both;
+}
+
+body {
+    margin: 0;
+    background: #003b64;
+
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    margin-top: 50px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.stage {
+    float: left;
+    height: 680px;
+    overflow: hidden;
+    width: 100%;
+    z-index: 10;
+    position: relative;
+    -webkit-backface-visibility: hidden; /* 隐藏被旋转的div的背面 */
+
+}
+
+section {
+    margin-top: 40px;
+    display: block;
+}
+
+.cbImage {
+    width: 300px;
+    height: 400px;
+    float: left;
+    margin: 95px 0px 25px 0px;
+    position: absolute;
+    -webkit-transform-style: preserve-3d; /* 使被转换的子元素保留其3d转换 */
+    transform-style: preserve-3d;
+    text-align: center;
+    background: #fff;
+    padding: 24px;
+    cursor: pointer;
+}
+
+.inactiveLeft {
+    -webkit-transform: perspective(500px) rotateY(60deg); /* 设置元素被查看位置的视图 */
+    -O-transform: perspective(500px) rotateY(60deg);
+    transform: perspective(500px) rotateY(60deg);
+    -webkit-transition: all .5s ease-out; /* 过渡时间5s，以慢速结束的过渡效果 */
+    -O-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+
+}
+
+.inactiveRight {
+    -webkit-transform: perspective(500px) rotateY(-60deg);
+    -O-transform: perspective(500px) rotateY(-60deg);
+    transform: perspective(500px) rotateY(-60deg);
+    -webkit-transition: all .5s ease-out;
+    -O-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+
+}
+
+.active {
+    z-index: 100;
+    -webkit-transform: perspective(500px) rotateY(0deg);
+    -O-transform: perspective(500px) rotateY(0deg);
+    transform: perspective(500px) rotateY(0deg);
+    -webkit-transition: all .5s ease-out;
+    -O-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+}
+
+.cbImage h3 {
+    color: #003b64;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 28px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-top: 1px solid #003b64;
+    border-bottom: 1px solid #003b64;
+    background: transparent; /* 透明背景 */
+    margin: 0 0px 26px 0px;
+    color: #39eac3;
+}
+
+input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-top: 1px solid #003b64;
+    border-bottom: 1px solid #003b64;
+    background: transparent;
+    margin: 0 0px 26px 0px;
+    color: #39eac3;
+}
+
+/* input框默认显示的字体颜色为#39eac3 */
+::-webkit-input-placeholder {
+    color: #39eac3 !important;
+}
+
+.radioText{
+    margin: 0 0px 23px 0px;
+    color: #003b64;
+    font-size: 13px;
+}
+
+input[type="button"] {
+    padding: 8px 25px;
+    background: #003b64;
+    border: none;
+    outline: none;
+    border-top: 2px solid #39eac3;
+    border-bottom: 2px solid #39eac3;
+    display: block;
+    width: 30%;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    border-top: 2px solid #003b64;
+    border-bottom: 2px solid #003b64;
+    background: #39eac3;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+.footer {
+    margin: 30px 0px;
+}
+
+.footer p {
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* 针对不同的屏幕尺寸设置不同的样式 */
+@media screen and (max-width: 736px) {
+    h1 {
+        font-size: 35px;
+        margin-top: 30px;
+    }
+
+    .stage {
+        float: left;
+        height: 520px;
+    }
+
+    .cbImage {
+        margin: 35px 0px 5px 0px;
+    }
+
+    .cbImage h3 {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .cbImage {
+        width: 250px;
+        height: 350px;
+    }
+
+    input[type="text"] {
+        margin: 0 0px 25px 0px;
+    }
+
+    input[type="password"] {
+        margin: 0 0px 25px 0px;
+    }
+
+    input[type="submit"] {
+        width: 38%;
+    }
+
+    .inactiveLeft {
+        transform: perspective(250px) rotateY(20deg);
+        -webkit-transform: perspective(250px) rotateY(20deg);
+        -moz-transform: perspective(250px) rotateY(20deg);
+        -o-transform: perspective(250px) rotateY(20deg);
+        -ms-transform: perspective(250px) rotateY(20deg);
+    }
+
+    .inactiveRight {
+        transform: perspective(250px) rotateY(-20deg);
+        -webkit-transform: perspective(250px) rotateY(-20deg);
+        -moz-transform: perspective(250px) rotateY(-20deg);
+        -o-transform: perspective(250px) rotateY(-20deg);
+        -ms-transform: perspective(250px) rotateY(-20deg);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        letter-spacing: 1px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    h1 {
+        font-size: 30px;
+        letter-spacing: 0;
+    }
+}
+
+@media screen and (max-width: 384px) {
+    section {
+        margin-top: 20px;
+    }
+
+    .inactiveLeft {
+        transform: perspective(250px) rotateY(10deg);
+    }
+
+    .inactiveRight {
+        transform: perspective(250px) rotateY(-10deg);
+    }
+
+    .stage {
+        height: 450px;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+    h1 {
+        font-size: 23px;
+        margin-top: 13px;
+    }
+
+    .stage {
+        height: 414px;
+    }
+
+    .cbImage h3 {
+        margin-bottom: 20px;
+    }
+
+    .cbImage {
+        width: 215px;
+        height: 320px;
+    }
+
+    input[type="submit"] {
+        width: 45%;
+    }
+}

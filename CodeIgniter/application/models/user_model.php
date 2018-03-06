@@ -11,6 +11,24 @@ class User_model extends CI_Model {
         return 'user';
     }
 
+    public function add($username, $password, $identity, $email) {
+        $data = array(
+            'username' => $username,
+            'password' => md5($password),
+            'identity' => $identity,
+            'email' => $email,
+            'create_time' => time(),
+            'update_time' => time()
+        );
+        return $this->db->insert($this->get_table_name(), $data);
+    }
+
+    public function get_by_username($username) {
+        $sql = 'SELECT * FROM ' . $this->get_table_name() . ' WHERE username = ?';
+        $query = $this->db->query($sql, array($username));
+        return $query->row();
+    }
+
     public function get_by_username_password($username, $password, $identity) {
         $sql = 'SELECT * FROM ' . $this->get_table_name() . ' WHERE username = ? AND password = ? AND identity = ?';
         $query = $this->db->query($sql, array($username, md5($password), $identity));
