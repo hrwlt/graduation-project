@@ -12,7 +12,7 @@ html, body, div, h1, h3, p, form, section {
 body {
     margin: 0;
     background: #003b64;
-
+    opacity: 0.9;
 }
 
 h1 {
@@ -123,7 +123,7 @@ input[type="password"] {
     color: #39eac3 !important;
 }
 
-.radioText{
+.radioText {
     margin: 0 0px 23px 0px;
     color: #003b64;
     font-size: 13px;
