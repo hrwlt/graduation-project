@@ -11,15 +11,20 @@ html, body, div, h1, h3, p, form, section {
 
 body {
     margin: 0;
-    background: #003b64;
+    background-image: url("/resource/imgs/background_img1.jpg");
     opacity: 0.9;
 }
 
+section {
+    background: linear-gradient(to bottom, #787878 0%, rgba(52, 52, 52, 0.33) 100%);
+    display: block;
+}
+
 h1 {
+    padding-top: 50px;
     text-align: center;
     font-size: 40px;
     color: #fff;
-    margin-top: 50px;
     font-weight: 400;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -36,12 +41,8 @@ h1 {
 
 }
 
-section {
-    margin-top: 40px;
-    display: block;
-}
-
 .cbImage {
+    border-radius: 10px;
     width: 300px;
     height: 400px;
     float: left;
@@ -155,11 +156,8 @@ input[type="button"]:hover {
     -ms-transition: 0.5s all;
 }
 
-.footer {
-    margin: 30px 0px;
-}
-
 .footer p {
+    padding-bottom: 30px;
     font-size: 14px;
     color: #fff;
     text-align: center;

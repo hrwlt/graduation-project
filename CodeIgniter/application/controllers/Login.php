@@ -22,7 +22,7 @@ class Login extends CI_Controller {
             $obj['success'] = TRUE;
             // 添加session
             $session_array = ['username' => $username, 'identity' => $identity, 'email' => $row->email];
-            $this->session->set_tempdata($session_array, NULL, 10);
+            $this->session->set_tempdata($session_array, NULL, 86400);
         } else {
             $obj['message'] = '请输入正确的用户名或密码！';
             $obj['success'] = FALSE;
@@ -40,7 +40,7 @@ class Login extends CI_Controller {
 
         $user_row = $this->user_model->get_by_username($username);
         if ($user_row) {
-            $obj['message'] = '该用户已经被注册！';
+            $obj['message'] = '该用户名已经被注册！';
             $obj['success'] = FALSE;
         } else {
             $row = $this->user_model->add($username, $password, $identity, $email);
@@ -48,7 +48,7 @@ class Login extends CI_Controller {
                 $obj['message'] = '注册成功！';
                 $obj['success'] = TRUE;
                 $session_array = ['username' => $username, 'identity' => $identity, 'email' => $email];
-                $this->session->set_tempdata($session_array, NULL, 10);
+                $this->session->set_tempdata($session_array, NULL, 86400);
             } else {
                 $obj['message'] = '注册失败，请稍后再试！';
                 $obj['success'] = FALSE;
