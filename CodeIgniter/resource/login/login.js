@@ -143,7 +143,6 @@
 })(jQuery);
 
 
-
 $("#login").click(function () {
     $.ajax({
         type: "POST",
@@ -171,7 +170,7 @@ $("#register").click(function () {
         data: $('#registerForm').serialize(),
         success: function (data) {
             if (data.success == true) {
-                window.location.href = 'http://' + window.location.hostname + '/home/index';
+                window.location.href = 'http://' + window.location.hostname + '/edit/index';
             } else {
                 alert(data.message);
             }

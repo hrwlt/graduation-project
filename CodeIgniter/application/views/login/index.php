@@ -11,6 +11,8 @@
 <section>
     <h1>HZNU-DODO试题平台</h1>
     <div class="stage">
+
+
         <div class="cbImage">
             <h3>找回密码</h3>
             <form action="" method="post">
@@ -19,6 +21,8 @@
                 <input type="button" class="done" value="提交">
             </form>
         </div>
+
+
         <div class="cbImage active">
             <h3>登录</h3>
             <form id="loginForm" action="" method="post">

@@ -29,32 +29,52 @@ class Login extends CI_Controller {
         }
 
         echo json_encode($obj);
+        exit();
 
     }
 
     public function register() {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
+        $confirm_password = $this->input->post('confirm_password');
         $identity = $this->input->post('identity');
         $email = $this->input->post('email');
+
+        if (!$username) {
+            $obj['message'] = '用户名不能为空！';
+            $obj['success'] = FALSE;
+            echo json_encode($obj);
+            exit();
+        }
 
         $user_row = $this->user_model->get_by_username($username);
         if ($user_row) {
             $obj['message'] = '该用户名已经被注册！';
             $obj['success'] = FALSE;
-        } else {
-            $row = $this->user_model->add($username, $password, $identity, $email);
-            if ($row) {
-                $obj['message'] = '注册成功！';
-                $obj['success'] = TRUE;
-                $session_array = ['username' => $username, 'identity' => $identity, 'email' => $email];
-                $this->session->set_tempdata($session_array, NULL, 86400);
-            } else {
-                $obj['message'] = '注册失败，请稍后再试！';
-                $obj['success'] = FALSE;
-            }
+            echo json_encode($obj);
+            exit();
         }
 
+        if (strcmp($password, $confirm_password) != 0) {
+            $obj['message'] = '两次输入密码必须相同！';
+            $obj['success'] = FALSE;
+            echo json_encode($obj);
+            exit();
+        }
+
+        $row = $this->user_model->add($username, $password, $identity, $email);
+        if (!$row) {
+            $obj['message'] = '注册失败，请稍后再试！';
+            $obj['success'] = FALSE;
+            echo json_encode($obj);
+            exit();
+
+        }
+
+        $obj['message'] = '注册成功！';
+        $obj['success'] = TRUE;
+        $session_array = ['username' => $username, 'identity' => $identity, 'email' => $email];
+        $this->session->set_tempdata($session_array, NULL, 86400);
         echo json_encode($obj);
     }
 
