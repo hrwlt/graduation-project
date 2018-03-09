@@ -11,7 +11,7 @@ class Home extends CI_Controller {
         $data['username'] = $this->session->username;
         $data['identity'] = $this->session->identity;
         $data['email'] = $this->session->email;
-        $this->load->view('home/index', $data);
+        $this->load->view('common', $data);
     }
 
     public function logout() {

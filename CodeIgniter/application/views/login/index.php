@@ -65,7 +65,7 @@
     </div>
     <div class="clear"></div>
     <div class="footer">
-        <p>&copy 2018 HZNU DODO All Design By HR</p>
+        <p>&copy; 2018 HZNU DODO All Design By HR</p>
     </div>
 </section>
 <script src="<?= base_url() . 'resource/jquery-3.3.1.min.js' ?>"></script>
