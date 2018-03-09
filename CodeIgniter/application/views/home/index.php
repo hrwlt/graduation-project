@@ -1,145 +1,81 @@
+<!DOCTYPE html>
 <html>
 <head>
+    <title>Home</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="<?= base_url() . 'resource/home/light-bootstrap-dashboard.css' ?>" rel="stylesheet"/>
-    <link href="<?= base_url() . 'resource/home/font-awesome.min.css' ?>" rel="stylesheet">
-    <link href="<?= base_url() . 'resource/home/font-icon.css' ?>" rel="stylesheet"/>
-
-    <link type="text/css" rel="stylesheet" href="<?= base_url() . 'resource/bootstrap/css/bootstrap.min.css' ?>"/>
-    <link type="text/css" rel="stylesheet" href="<?= base_url() . 'resource/home/home.css' ?>"/>
-    <title><?php echo $title; ?></title>
+    <link type="text/css" rel="stylesheet" href="<?= base_url() . 'resource/bootstrap/css/bootstrap.min.css' ?>">
+    <link type="text/css" rel="stylesheet" href="<?= base_url() . 'resource/home/home.css' ?>">
+    <link type="text/css" rel="stylesheet" href="<?= base_url() . 'resource/home/font-awesome.min.css' ?>">
+    <link type="text/css" rel="stylesheet" href="<?= base_url() . 'resource/home/ico-awesome.min.css' ?>">
+    <link type="text/css" rel="stylesheet" href="<?= base_url() . 'resource/home/material-dashboard.css' ?>">
 </head>
 <body>
-
 <div class="wrapper">
-    <div class="sidebar" data-color="orange" data-image="../assets/img/full-screen-image-3.jpg">
-
+    <div class="sidebar" data-color="purple" data-image="">
         <div class="logo">
-            <a href="http://www.creative-tim.com" class="logo-text">
+            <a href="#" class="simple-text">
                 Creative Tim
             </a>
         </div>
-        <div class="logo logo-mini">
-            <a href="http://www.creative-tim.com" class="logo-text">
-                Ct
-            </a>
-        </div>
-
         <div class="sidebar-wrapper">
-
-            <div class="user">
-                <div class="photo">
-                    <img src="picture/default-avatar.png"/>
-                </div>
-                <div class="info">
-                    <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                        Tania Andrew
-                        <b class="caret"></b>
-                    </a>
-                    <div class="collapse" id="collapseExample">
-                        <ul class="nav">
-                            <li><a href="#">My Profile</a></li>
-                            <li><a href="#">Edit Profile</a></li>
-                            <li><a href="#">Settings</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
             <ul class="nav">
-                <li>
-                    <a href="dashboard.html">
-                        <i class="pe-7s-graph"></i>
+                <li class="active">
+                    <a href="">
+                        <i class="material-icons">dashboard</i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li>
-                    <a data-toggle="collapse" href="#componentsExamples">
-                        <i class="pe-7s-plugin"></i>
-                        <p>Components
-                            <b class="caret"></b>
-                        </p>
+                    <a href="">
+                        <i class="material-icons">person</i>
+                        <p>User Profile</p>
                     </a>
-                    <div class="collapse" id="componentsExamples">
-                        <ul class="nav">
-                            <li><a href="components/buttons.html">Buttons</a></li>
-                            <li><a href="components/grid.html">Grid System</a></li>
-                            <li><a href="components/icons.html">Icons</a></li>
-                            <li><a href="components/notifications.html">Notifications</a></li>
-                            <li><a href="components/panels.html">Panels</a></li>
-                            <li><a href="components/sweet-alert.html">Sweet Alert</a></li>
-                            <li><a href="components/typography.html">Typography</a></li>
-                        </ul>
-                    </div>
                 </li>
-
                 <li>
-                    <a data-toggle="collapse" href="#formsExamples">
-                        <i class="pe-7s-note2"></i>
-                        <p>Forms
-                            <b class="caret"></b>
-                        </p>
+                    <a href="">
+                        <i class="material-icons">content_paste</i>
+                        <p>Table List</p>
                     </a>
-                    <div class="collapse" id="formsExamples">
-                        <ul class="nav">
-                            <li><a href="forms/regular.html">Regular Forms</a></li>
-                            <li><a href="forms/extended.html">Extended Forms</a></li>
-                            <li><a href="forms/validation.html">Validation Forms</a></li>
-                            <li><a href="forms/wizard.html">Wizard</a></li>
-                        </ul>
-                    </div>
                 </li>
-
                 <li>
-                    <a data-toggle="collapse" href="#tablesExamples">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>Tables
-                            <b class="caret"></b>
-                        </p>
+                    <a href="">
+                        <i class="material-icons">library_books</i>
+                        <p>Typography</p>
                     </a>
-                    <div class="collapse" id="tablesExamples">
-                        <ul class="nav">
-                            <li><a href="tables/regular.html">Regular Tables</a></li>
-                            <li><a href="tables/extended.html">Extended Tables</a></li>
-                            <li><a href="tables/bootstrap-table.html">Bootstrap Table</a></li>
-                            <li><a href="tables/datatables.net.html">DataTables.net</a></li>
-                        </ul>
-                    </div>
                 </li>
-
                 <li>
-                    <a data-toggle="collapse" href="#pagesExamples">
-                        <i class="pe-7s-gift"></i>
-                        <p>Pages
-                            <b class="caret"></b>
-                        </p>
+                    <a href="">
+                        <i class="material-icons">bubble_chart</i>
+                        <p>Icons</p>
                     </a>
-                    <div class="collapse" id="pagesExamples">
-                        <ul class="nav">
-                            <li><a href="pages/login.html">Login Page</a></li>
-                            <li><a href="pages/register.html">Register Page</a></li>
-                            <li><a href="pages/lock.html">Lock Screen Page</a></li>
-                            <li><a href="pages/user.html">User Page</a></li>
-                            <li><a href="#">More coming soon...</a></li>
-                        </ul>
-                    </div>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="material-icons">location_on</i>
+                        <p>Maps</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="material-icons text-gray">notifications</i>
+                        <p>Notifications</p>
+                    </a>
+                </li>
+                <li class="active-pro">
+                    <a href="">
+                        <i class="material-icons">unarchive</i>
+                        <p>Upgrade to PRO</p>
+                    </a>
                 </li>
             </ul>
         </div>
     </div>
 
     <div class="main-panel">
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-transparent navbar-absolute">
             <div class="container-fluid">
-                <div class="navbar-minimize">
-                    <button id="minimizeSidebar" class="btn btn-warning btn-fill btn-round btn-icon">
-                        <i class="fa fa-ellipsis-v visible-on-sidebar-regular"></i>
-                        <i class="fa fa-navicon visible-on-sidebar-mini"></i>
-                    </button>
-                </div>
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse">
                         <span class="sr-only">Toggle navigation</span>
@@ -147,318 +83,501 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Charts</a>
+                    <a class="navbar-brand" href="#">Material Dashboard</a>
                 </div>
                 <div class="collapse navbar-collapse">
-
-                    <form class="navbar-form navbar-left navbar-search-form" role="search">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                            <input type="text" value="" class="form-control" placeholder="Search...">
-                        </div>
-                    </form>
-
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="charts.html">
-                                <i class="fa fa-line-chart"></i>
-                                <p>Stats</p>
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="material-icons">dashboard</i>
+                                <p class="hidden-lg hidden-md">Dashboard</p>
                             </a>
                         </li>
-
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-gavel"></i>
-                                <p class="hidden-md hidden-lg">
-                                    Actions
-                                    <b class="caret"></b>
-                                </p>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Create New Post</a></li>
-                                <li><a href="#">Manage Something</a></li>
-                                <li><a href="#">Do Nothing</a></li>
-                                <li><a href="#">Submit to live</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Another Action</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-bell-o"></i>
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="material-icons">notifications</i>
                                 <span class="notification">5</span>
-                                <p class="hidden-md hidden-lg">
-                                    Notifications
-                                    <b class="caret"></b>
-                                </p>
+                                <p class="hidden-lg hidden-md">Notifications</p>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
+                                <li><a href="">Mike John responded to your email</a></li>
+                                <li><a href="">You have 5 new tasks</a></li>
+                                <li><a href="">You're now friend with Andrew</a></li>
+                                <li><a href="">Another Notification</a></li>
+                                <li><a href="">Another One</a></li>
                             </ul>
                         </li>
-
-                        <li class="dropdown dropdown-with-icons">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-list"></i>
-                                <p class="hidden-md hidden-lg">
-                                    More
-                                    <b class="caret"></b>
-                                </p>
+                        <li>
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="material-icons">person</i>
+                                <p class="hidden-lg hidden-md">Profile</p>
                             </a>
-                            <ul class="dropdown-menu dropdown-with-icons">
-                                <li>
-                                    <a href="#">
-                                        <i class="pe-7s-mail"></i> Messages
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="pe-7s-help1"></i> Help Center
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="pe-7s-tools"></i> Settings
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="#">
-                                        <i class="pe-7s-lock"></i> Lock Screen
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-danger">
-                                        <i class="pe-7s-close-circle"></i>
-                                        Log out
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
-
                     </ul>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group  is-empty">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <span class="material-input"></span>
+                        </div>
+                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                            <i class="material-icons">search</i>
+                            <div class="ripple-container"></div>
+                        </button>
+                    </form>
                 </div>
             </div>
         </nav>
 
-
         <div class="content">
             <div class="container-fluid">
-
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="header">
-                                24 Hours Performance
-                                <p class="category">Line Chart</p>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-header" data-background-color="orange">
+                                <i class="material-icons">content_copy</i>
                             </div>
-                            <div class="content">
-                                <div id="chartPerformance" class="ct-chart "></div>
+                            <div class="card-content">
+                                <p class="category">Used Space</p>
+                                <h3 class="title">49/50
+                                    <small>GB</small>
+                                </h3>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="header">
-                                NASDAQ: AAPL
-                                <p class="category">Line Chart with Points</p>
-                            </div>
-                            <div class="content">
-                                <div id="chartStock" class="ct-chart "></div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons text-danger">warning</i> <a href="">Get More
+                                        Space...</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="header">
-                                Users Behavior
-                                <p class="category">Multiple Lines Charts</p>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-header" data-background-color="green">
+                                <i class="material-icons">store</i>
                             </div>
-                            <div class="content">
-                                <div id="chartBehaviour" class="ct-chart "></div>
+                            <div class="card-content">
+                                <p class="category">Revenue</p>
+                                <h3 class="title">$34,245</h3>
                             </div>
-                            <div class="footer">
-                                <h6>Legend</h6>
-                                <i class="fa fa-circle text-info"></i> Visited Site
-                                <i class="fa fa-circle text-danger"></i> Register
-                                <i class="fa fa-circle text-warning"></i> Login 2nd time
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons">date_range</i> Last 24 Hours
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="header">
-                                Public Preferences
-                                <p class="category">Pie Chart</p>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-header" data-background-color="red">
+                                <i class="material-icons">info_outline</i>
                             </div>
-                            <div class="content">
-                                <div id="chartPreferences" class="ct-chart "></div>
+                            <div class="card-content">
+                                <p class="category">Fixed Issues</p>
+                                <h3 class="title">75</h3>
                             </div>
-                            <div class="footer">
-                                <h6>Legend</h6>
-                                <i class="fa fa-circle text-info"></i> Apple
-                                <i class="fa fa-circle text-warning"></i> Samsung
-                                <i class="fa fa-circle text-danger"></i> Windows Phone
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons">local_offer</i> Tracked from Github
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="header">
-                                Views
-                                <p class="category">Bar Chart</p>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-header" data-background-color="blue">
+                                <i class="fa fa-twitter"></i>
                             </div>
-                            <div class="content">
-                                <div id="chartViews" class="ct-chart "></div>
+                            <div class="card-content">
+                                <p class="category">Followers</p>
+                                <h3 class="title">+245</h3>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="header">
-                                Activity
-                                <p class="category">Multiple Bars Chart</p>
-                            </div>
-                            <div class="content">
-                                <div id="chartActivity" class="ct-chart "></div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons">update</i> Just Updated
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a></div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header card-chart" data-background-color="green">
+                                <div class="ct-chart" id="dailySalesChart"></div>
+                            </div>
+                            <div class="card-content">
+                                <h4 class="title">Daily Sales</h4>
+                                <p class="category"><span class="text-success"><i class="fa fa-long-arrow-up"></i> 55%  </span>
+                                    increase in today sales.</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons">access_time</i> updated 4 minutes ago
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header card-chart" data-background-color="orange">
+                                <div class="ct-chart" id="emailsSubscriptionChart"></div>
+                            </div>
+                            <div class="card-content">
+                                <h4 class="title">Email Subscriptions</h4>
+                                <p class="category">Last Campaign Performance</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons">access_time</i> campaign sent 2 days ago
+                                </div>
+                            </div>
 
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header card-chart" data-background-color="red">
+                                <div class="ct-chart" id="completedTasksChart"></div>
+                            </div>
+                            <div class="card-content">
+                                <h4 class="title">Completed Tasks</h4>
+                                <p class="category">Last Campaign Performance</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons">access_time</i> campaign sent 2 days ago
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card card-nav-tabs">
+                            <div class="card-header" data-background-color="purple">
+                                <div class="nav-tabs-navigation">
+                                    <div class="nav-tabs-wrapper">
+                                        <span class="nav-tabs-title">Tasks:</span>
+                                        <ul class="nav nav-tabs" data-tabs="tabs">
+                                            <li class="active">
+                                                <a href="#profile" data-toggle="tab">
+                                                    <i class="material-icons">bug_report</i>
+                                                    Bugs
+                                                    <div class="ripple-container"></div>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#messages" data-toggle="tab">
+                                                    <i class="material-icons">code</i>
+                                                    Website
+                                                    <div class="ripple-container"></div>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#settings" data-toggle="tab">
+                                                    <i class="material-icons">cloud</i>
+                                                    Server
+                                                    <div class="ripple-container"></div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="profile">
+                                        <table class="table">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="optionsCheckboxes" checked>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                                <td class="td-actions text-right">
+                                                    <button type="button" rel="tooltip" title="Edit Task"
+                                                            class="btn btn-primary btn-simple btn-xs">
+                                                        <i class="material-icons">edit</i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" title="Remove"
+                                                            class="btn btn-danger btn-simple btn-xs">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="optionsCheckboxes">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                                                <td class="td-actions text-right">
+                                                    <button type="button" rel="tooltip" title="Edit Task"
+                                                            class="btn btn-primary btn-simple btn-xs">
+                                                        <i class="material-icons">edit</i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" title="Remove"
+                                                            class="btn btn-danger btn-simple btn-xs">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="optionsCheckboxes">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>Flooded: One year later, assessing what was lost and what was found
+                                                    when a ravaging rain swept through metro Detroit
+                                                </td>
+                                                <td class="td-actions text-right">
+                                                    <button type="button" rel="tooltip" title="Edit Task"
+                                                            class="btn btn-primary btn-simple btn-xs">
+                                                        <i class="material-icons">edit</i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" title="Remove"
+                                                            class="btn btn-danger btn-simple btn-xs">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="optionsCheckboxes" checked>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>Create 4 Invisible User Experiences you Never Knew About</td>
+                                                <td class="td-actions text-right">
+                                                    <button type="button" rel="tooltip" title="Edit Task"
+                                                            class="btn btn-primary btn-simple btn-xs">
+                                                        <i class="material-icons">edit</i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" title="Remove"
+                                                            class="btn btn-danger btn-simple btn-xs">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane" id="messages">
+                                        <table class="table">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="optionsCheckboxes" checked>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>Flooded: One year later, assessing what was lost and what was found
+                                                    when a ravaging rain swept through metro Detroit
+                                                </td>
+                                                <td class="td-actions text-right">
+                                                    <button type="button" rel="tooltip" title="Edit Task"
+                                                            class="btn btn-primary btn-simple btn-xs">
+                                                        <i class="material-icons">edit</i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" title="Remove"
+                                                            class="btn btn-danger btn-simple btn-xs">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="optionsCheckboxes">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                                <td class="td-actions text-right">
+                                                    <button type="button" rel="tooltip" title="Edit Task"
+                                                            class="btn btn-primary btn-simple btn-xs">
+                                                        <i class="material-icons">edit</i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" title="Remove"
+                                                            class="btn btn-danger btn-simple btn-xs">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane" id="settings">
+                                        <table class="table">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="optionsCheckboxes">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                                                <td class="td-actions text-right">
+                                                    <button type="button" rel="tooltip" title="Edit Task"
+                                                            class="btn btn-primary btn-simple btn-xs">
+                                                        <i class="material-icons">edit</i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" title="Remove"
+                                                            class="btn btn-danger btn-simple btn-xs">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="optionsCheckboxes" checked>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>Flooded: One year later, assessing what was lost and what was found
+                                                    when a ravaging rain swept through metro Detroit
+                                                </td>
+                                                <td class="td-actions text-right">
+                                                    <button type="button" rel="tooltip" title="Edit Task"
+                                                            class="btn btn-primary btn-simple btn-xs">
+                                                        <i class="material-icons">edit</i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" title="Remove"
+                                                            class="btn btn-danger btn-simple btn-xs">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="optionsCheckboxes">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                                <td class="td-actions text-right">
+                                                    <button type="button" rel="tooltip" title="Edit Task"
+                                                            class="btn btn-primary btn-simple btn-xs">
+                                                        <i class="material-icons">edit</i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" title="Remove"
+                                                            class="btn btn-danger btn-simple btn-xs">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card">
+                            <div class="card-header" data-background-color="orange">
+                                <h4 class="title">Employees Stats</h4>
+                                <p class="category">New employees on 15th September, 2016</p>
+                            </div>
+                            <div class="card-content table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="text-warning">
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Salary</th>
+                                    <th>Country</th>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Dakota Rice</td>
+                                        <td>$36,738</td>
+                                        <td>Niger</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Minerva Hooper</td>
+                                        <td>$23,789</td>
+                                        <td>Curaçao</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Sage Rodriguez</td>
+                                        <td>$56,142</td>
+                                        <td>Netherlands</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Philip Chaney</td>
+                                        <td>$38,735</td>
+                                        <td>Korea, South</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="">
                                 Home
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="">
                                 Company
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="">
                                 Portfolio
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="">
                                 Blog
                             </a>
                         </li>
                     </ul>
                 </nav>
                 <p class="copyright pull-right">
-                    &copy; 2016 <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                    &copy;
+                    <script>document.write(new Date().getFullYear())</script>
+                    <a href="">Creative Tim</a>
                 </p>
             </div>
         </footer>
-
-
     </div>
 </div>
-
 </body>
-<!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/jquery-ui.min.js" type="text/javascript"></script>
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
-
-
-<!--  Forms Validations Plugin -->
-<script src="js/jquery.validate.min.js"></script>
-
-<!--  Plugin for Date Time Picker and Full Calendar Plugin-->
-<script src="js/moment.min.js"></script>
-
-<!--  Date Time Picker Plugin is included in this js file -->
-<script src="js/bootstrap-datetimepicker.js"></script>
-
-<!--  Select Picker Plugin -->
-<script src="js/bootstrap-selectpicker.js"></script>
-
-<!--  Checkbox, Radio, Switch and Tags Input Plugins -->
-<script src="js/bootstrap-checkbox-radio-switch-tags.js"></script>
-
-<!--  Charts Plugin -->
-<script src="js/chartist.min.js"></script>
-
-<!--  Notifications Plugin    -->
-<script src="js/bootstrap-notify.js"></script>
-
-<!-- Sweet Alert 2 plugin -->
-<script src="js/sweetalert2.js"></script>
-
-<!-- Vector Map plugin -->
-<script src="js/jquery-jvectormap.js"></script>
-
-<!--  Google Maps Plugin    -->
-<script src="js/aa743e8f448a4792bad10d201a7080f6.js"></script>
-
-<!-- Wizard Plugin    -->
-<script src="js/jquery.bootstrap.wizard.min.js"></script>
-
-<!--  Bootstrap Table Plugin    -->
-<script src="js/bootstrap-table.js"></script>
-
-<!--  Plugin for DataTables.net  -->
-<script src="js/jquery.datatables.js"></script>
-
-
-<!--  Full Calendar Plugin    -->
-<script src="js/fullcalendar.min.js"></script>
-
-<!-- Light Bootstrap Dashboard Core javascript and methods -->
-<script src="js/light-bootstrap-dashboard.js"></script>
-
-<!--   Sharrre Library    -->
-<script src="js/jquery.sharrre.js"></script>
-
-<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
-<script src="js/demo.js"></script>
-
-<script>
-    $().ready(function () {
-        demo.initCharts();
-    });
-</script>
-
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-46172202-1', 'auto');
-    ga('send', 'pageview');
-
-</script>
-
+<script src="<?= base_url() . 'resource/bootstrap/js/bootstrap.min.js' ?>" type="text/javascript"></script>
+<script src="<?= base_url() . 'resource/jquery-3.3.1.min.js' ?>" type="text/javascript"></script>
 </html>

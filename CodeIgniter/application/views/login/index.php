@@ -68,7 +68,7 @@
         <p>&copy 2018 HZNU DODO All Design By HR</p>
     </div>
 </section>
-<script src="<?= base_url() . 'resource/login/jquery-2.1.4.min.js' ?>"></script>
+<script src="<?= base_url() . 'resource/jquery-3.3.1.min.js' ?>"></script>
 <script src="<?= base_url() . 'resource/login/login.js' ?>"></script>
 </body>
 </html>
