@@ -3696,15 +3696,8 @@ be a descendant of the grid when it is being dragged.
     background-color: #999;
 }
 
-/*!
- * Bootstrap-select v1.8.1 (http://silviomoreto.github.io/bootstrap-select)
- *
- * Copyright 2013-2015 bootstrap-select
- * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
- */
 .bootstrap-select {
-    width: 220px \0;
-    /*IE9 and below*/
+    width: 220px;
 }
 
 .bootstrap-select > .dropdown-toggle {
@@ -4187,7 +4180,7 @@ h1 .subtitle {
     position: relative;
     z-index: 4;
     width: 260px;
-    height: calc(100vh - 64px);
+    height: calc(100vh - 137px);
 }
 
 .sidebar .sidebar-wrapper > .nav {
@@ -4262,77 +4255,12 @@ h1 .subtitle {
     text-align: center;
 }
 
-.sidebar .logo-mini {
-    display: none;
-}
-
-.sidebar .logo,
-.bootstrap-navbar .logo {
+.sidebar .user,
+.bootstrap-navbar .user {
     padding: 10px 15px;
     position: relative;
     z-index: 4;
-}
-
-.sidebar .logo p,
-.bootstrap-navbar .logo p {
-    float: left;
-    font-size: 20px;
-    margin: 10px 10px;
-    color: #FFFFFF;
-    line-height: 20px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.sidebar .logo .logo-text,
-.bootstrap-navbar .logo .logo-text {
-    text-transform: uppercase;
-    padding: 7px 0px;
-    display: block;
-    font-size: 18px;
-    color: #FFFFFF;
-    font-weight: 400;
-    line-height: 30px;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.sidebar .logo .logo-image,
-.bootstrap-navbar .logo .logo-image {
-    float: left;
-    height: 40px;
-    width: 40px;
-    margin: 0 10px;
-}
-
-.sidebar .logo .logo-round,
-.bootstrap-navbar .logo .logo-round {
-    border-radius: 50%;
-    display: block;
-    overflow: hidden;
-}
-
-.sidebar .logo .logo-round img,
-.bootstrap-navbar .logo .logo-round img {
-    width: 100%;
-}
-
-.sidebar .logo:before,
-.bootstrap-navbar .logo:before {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    right: 10%;
-    width: 80%;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-.sidebar .user,
-.bootstrap-navbar .user {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding-bottom: 20px;
-    margin-top: 20px;
 }
 
 .sidebar .user .photo,
@@ -4541,9 +4469,8 @@ h1 .subtitle {
         left: 81px;
         background-color: #FFFFFF;
         border: 1px solid rgba(0, 0, 0, 0.15);
-        border: 1px solid #ccc;
         border-radius: 10px;
-        padding: 0px;
+        padding: 0;
         -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.125);
         box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.125);
     }
@@ -4567,28 +4494,6 @@ h1 .subtitle {
         overflow: inherit;
         width: 80px;
         box-shadow: none;
-    }
-
-    .sidebar-mini .sidebar .logo {
-        display: none;
-    }
-
-    .sidebar-mini .sidebar .logo-mini {
-        padding: 10px 0px;
-        display: block;
-        margin: 0px;
-        position: relative;
-        z-index: 4;
-    }
-
-    .sidebar-mini .sidebar .logo-mini:before {
-        content: "";
-        position: absolute;
-        bottom: -1px;
-        right: 10%;
-        width: 80%;
-        height: 1px;
-        background-color: rgba(255, 255, 255, 0.3);
     }
 
     .sidebar-mini .sidebar .sidebar-wrapper > .nav {
@@ -5471,16 +5376,6 @@ fieldset[disabled] .form-control {
     background-color: #FB404B;
 }
 
-/*!
- * jQuery UI Slider 1.10.4
- * http://jqueryui.com
- *
- * Copyright 2014 jQuery Foundation and other contributors
- * Released under the MIT license.
- * http://jquery.org/license
- *
- * http://api.jqueryui.com/slider/#theming
- */
 .ui-slider {
     position: relative;
     text-align: left;
@@ -5494,7 +5389,7 @@ fieldset[disabled] .form-control {
     cursor: default;
 }
 
-.ui-slider .ui-slider-range {
+.ui-slide .ui-slider-range {
     position: absolute;
     z-index: 1;
     font-size: .7em;
@@ -5503,7 +5398,6 @@ fieldset[disabled] .form-control {
     background-position: 0 0;
 }
 
-/* For IE8 - See #6727 */
 .ui-slider.ui-state-disabled .ui-slider-handle,
 .ui-slider.ui-state-disabled .ui-slider-range {
     filter: inherit;
@@ -9469,7 +9363,6 @@ form label.radio, form label.checkbox {
     }
 }
 
-/*            Navigation menu                */
 .nav-pills > li + li {
     margin-left: 0;
 }
