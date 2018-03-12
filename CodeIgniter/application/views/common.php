@@ -19,30 +19,20 @@
                 <img src="../resource/imgs/default_avatar.png"/>
             </div>
             <div class="info">
-                <a>Tania Andrew</a>
+                <a><?php echo $username; ?></a>
             </div>
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li class="active">
-                    <a data-toggle="collapse" href="#componentsExamples" aria-expanded="true">
-                        <i class="pe-7s-plugin"></i>
-                        <p>Components
-                            <b class="caret"></b>
-                        </p>
+                    <a data-toggle="collapse" href="#personExamples" aria-expanded="true">
+                        <i class="pe-7s-user"></i>
+                        <p>个人中心<b class="caret"></b></p>
                     </a>
-                    <div class="collapse in" id="componentsExamples">
+                    <div class="collapse in" id="personExamples">
                         <ul class="nav">
-                            <li><a href="">Buttons</a></li>
-                            <li class="active"><a href="">Grid System</a></li>
-                            <li><a href="">Icons</a></li>
-                            <li><a href="">Icons</a></li>
-                            <li><a href="">Icons</a></li>
-                            <li><a href="">Icons</a></li>
-                            <li><a href="">Icons</a></li>
-                            <li><a href="">Icons</a></li>
-                            <li><a href="">Icons</a></li>
-                            <li><a href="">Icons</a></li>
+                            <li class="active"><a href="">基本设置</a></li>
+                            <li><a href="">安全设置</a></li>
                         </ul>
                     </div>
                 </li>
@@ -50,7 +40,7 @@
                 <li>
                     <a data-toggle="collapse" href="#formsExamples">
                         <i class="pe-7s-note2"></i>
-                        <p>Forms
+                        <p>题库管理
                             <b class="caret"></b>
                         </p>
                     </a>
@@ -62,7 +52,7 @@
                 <li>
                     <a data-toggle="collapse" href="#tablesExamples">
                         <i class="pe-7s-news-paper"></i>
-                        <p>Tables
+                        <p>教学管理
                             <b class="caret"></b>
                         </p>
                     </a>
@@ -73,24 +63,12 @@
 
                 <li>
                     <a data-toggle="collapse" href="#mapsExamples">
-                        <i class="pe-7s-map-marker"></i>
-                        <p>Maps
+                        <i class="pe-7s-plugin"></i>
+                        <p>考试管理
                             <b class="caret"></b>
                         </p>
                     </a>
                     <div class="collapse" id="mapsExamples">
-                        <ul class="nav"></ul>
-                    </div>
-                </li>
-
-                <li>
-                    <a data-toggle="collapse" href="#pagesExamples">
-                        <i class="pe-7s-gift"></i>
-                        <p>Pages
-                            <b class="caret"></b>
-                        </p>
-                    </a>
-                    <div class="collapse" id="pagesExamples">
                         <ul class="nav"></ul>
                     </div>
                 </li>
@@ -101,6 +79,12 @@
     <div class="main-panel">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
+                <div class="navbar-minimize">
+                    <button id="minimizeSidebar" class="btn btn-warning btn-fill btn-round btn-icon">
+                        <i class="fa fa-ellipsis-v visible-on-sidebar-regular"></i>
+                        <i class="fa fa-navicon visible-on-sidebar-mini"></i>
+                    </button>
+                </div>
                 <!-- 页面主题 -->
                 <div class="navbar-header">
                     <a class="navbar-brand" href=""><?php echo $title; ?></a>
@@ -140,7 +124,7 @@
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="" class="text-danger">
+                                    <a href="/login/logout" class="text-danger">
                                         <i class="pe-7s-close-circle"></i> 退出登录
                                     </a>
                                 </li>

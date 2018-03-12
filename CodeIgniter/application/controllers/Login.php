@@ -78,4 +78,9 @@ class Login extends CI_Controller {
         echo json_encode($obj);
     }
 
+    public function logout() {
+        $this->session->sess_destroy();
+        redirect('login/index');
+    }
+
 }
