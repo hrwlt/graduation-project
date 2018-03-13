@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="wrapper">
-    <div class="sidebar" data-color="black" data-image="../resource/imgs/background_img1.jpg">
+    <div class="sidebar" data-image="../resource/imgs/background_img1.jpg">
         <div class="user">
             <div class="photo">
                 <img src="../resource/imgs/default_avatar.png"/>
@@ -87,6 +87,12 @@
                 </div>
                 <!-- 页面主题 -->
                 <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                     <a class="navbar-brand" href=""><?php echo $title; ?></a>
                 </div>
                 <div class="collapse navbar-collapse">

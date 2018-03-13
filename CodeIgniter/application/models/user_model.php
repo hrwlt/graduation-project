@@ -12,14 +12,7 @@ class User_model extends CI_Model {
     }
 
     public function add($username, $password, $identity, $email) {
-        $data = array(
-            'username' => $username,
-            'password' => md5($password),
-            'identity' => $identity,
-            'email' => $email,
-            'create_time' => time(),
-            'update_time' => time()
-        );
+        $data = array('username' => $username, 'password' => md5($password), 'identity' => $identity, 'email' => $email, 'create_time' => time(), 'update_time' => time());
         return $this->db->insert($this->get_table_name(), $data);
     }
 

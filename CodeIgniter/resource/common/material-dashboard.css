@@ -4039,6 +4039,7 @@ be a descendant of the grid when it is being dragged.
     -webkit-transition: all 150ms linear;
     -moz-transition: all 150ms linear;
     -o-transition: all 150ms linear;
+    -ms-transition: all 150ms linear;
     transition: all 150ms linear;
     margin-top: -20px;
 }
@@ -4065,9 +4066,23 @@ be a descendant of the grid when it is being dragged.
     border-bottom: 0 none;
 }
 
-body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6,
-p, .navbar, .brand, .btn-simple, .alert,
-a, .td-name, td, button.close {
+/*           Font Smoothing      */
+body,
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6,
+p,
+.navbar,
+.brand,
+.btn-simple,
+.alert,
+a,
+.td-name,
+td,
+button.close {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
@@ -4200,7 +4215,7 @@ h1 .subtitle {
 }
 
 .sidebar .nav li > a {
-    margin: 5px 15px 0;
+    margin: 5px 15px 0px;
     border-radius: 4px;
     color: #FFFFFF;
     opacity: .86;
@@ -4247,12 +4262,77 @@ h1 .subtitle {
     text-align: center;
 }
 
-.sidebar .user,
-.bootstrap-navbar .user {
+.sidebar .logo-mini {
+    display: none;
+}
+
+.sidebar .logo,
+.bootstrap-navbar .logo {
     padding: 10px 15px;
     position: relative;
     z-index: 4;
+}
+
+.sidebar .logo p,
+.bootstrap-navbar .logo p {
+    float: left;
+    font-size: 20px;
+    margin: 10px 10px;
+    color: #FFFFFF;
+    line-height: 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.sidebar .logo .logo-text,
+.bootstrap-navbar .logo .logo-text {
+    text-transform: uppercase;
+    padding: 7px 0px;
+    display: block;
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sidebar .logo .logo-image,
+.bootstrap-navbar .logo .logo-image {
+    float: left;
+    height: 40px;
+    width: 40px;
+    margin: 0 10px;
+}
+
+.sidebar .logo .logo-round,
+.bootstrap-navbar .logo .logo-round {
+    border-radius: 50%;
+    display: block;
+    overflow: hidden;
+}
+
+.sidebar .logo .logo-round img,
+.bootstrap-navbar .logo .logo-round img {
+    width: 100%;
+}
+
+.sidebar .logo:before,
+.bootstrap-navbar .logo:before {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    right: 10%;
+    width: 80%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.sidebar .user,
+.bootstrap-navbar .user {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 20px;
+    margin-top: 20px;
 }
 
 .sidebar .user .photo,
@@ -5062,7 +5142,9 @@ h1 .subtitle {
     right: 8px;
 }
 
-body, .wrapper {
+/*     General overwrite     */
+body,
+.wrapper {
     min-height: 100vh;
     position: relative;
 }
@@ -5093,12 +5175,14 @@ input:focus {
     outline: 0 !important;
 }
 
+/*           Animations              */
 .animation-transition-general, .sidebar .nav p, .sidebar .user .photo,
 .bootstrap-navbar .user .photo, .sidebar .user a,
 .bootstrap-navbar .user a, .login-page .card {
     -webkit-transition: all 300ms linear;
     -moz-transition: all 300ms linear;
     -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
     transition: all 300ms linear;
 }
 
@@ -5106,6 +5190,7 @@ input:focus {
     -webkit-transition: all 150ms linear;
     -moz-transition: all 150ms linear;
     -o-transition: all 150ms linear;
+    -ms-transition: all 150ms linear;
     transition: all 150ms linear;
 }
 
@@ -5113,6 +5198,7 @@ input:focus {
     -webkit-transition: all 60ms ease-in;
     -moz-transition: all 60ms ease-in;
     -o-transition: all 60ms ease-in;
+    -ms-transition: all 60ms ease-in;
     transition: all 60ms ease-in;
 }
 
@@ -5124,6 +5210,7 @@ input:focus {
     -webkit-transition: all 300ms linear;
     -moz-transition: all 300ms linear;
     -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
     transition: all 300ms linear;
 }
 
@@ -5133,6 +5220,7 @@ input:focus {
     -webkit-transition: all 150ms ease-in;
     -moz-transition: all 150ms ease-in;
     -o-transition: all 150ms ease-in;
+    -ms-transition: all 150ms ease-in;
     transition: all 150ms ease-in;
 }
 
@@ -5140,6 +5228,7 @@ input:focus {
     -webkit-transition: all 60ms ease-in;
     -moz-transition: all 60ms ease-in;
     -o-transition: all 60ms ease-in;
+    -ms-transition: all 60ms ease-in;
     transition: all 60ms ease-in;
 }
 
@@ -5382,6 +5471,16 @@ fieldset[disabled] .form-control {
     background-color: #FB404B;
 }
 
+/*!
+ * jQuery UI Slider 1.10.4
+ * http://jqueryui.com
+ *
+ * Copyright 2014 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/slider/#theming
+ */
 .ui-slider {
     position: relative;
     text-align: left;
@@ -5404,6 +5503,7 @@ fieldset[disabled] .form-control {
     background-position: 0 0;
 }
 
+/* For IE8 - See #6727 */
 .ui-slider.ui-state-disabled .ui-slider-handle,
 .ui-slider.ui-state-disabled .ui-slider-range {
     filter: inherit;
@@ -5455,6 +5555,8 @@ fieldset[disabled] .form-control {
     top: 0;
 }
 
+/* Component containers
+----------------------------------*/
 .ui-widget {
     font-size: 1.1em;
 }
@@ -5508,10 +5610,13 @@ fieldset[disabled] .form-control {
     background-color: #FB404B;
 }
 
+/* Interaction states
+----------------------------------*/
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
     background: white;
+    /* Old browsers */
     background: -moz-linear-gradient(top, white 0%, #f1f1f2 100%);
     /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #f1f1f2));
