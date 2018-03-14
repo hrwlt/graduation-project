@@ -170,7 +170,7 @@ $("#register").click(function () {
         data: $('#registerForm').serialize(),
         success: function (data) {
             if (data.success == true) {
-                window.location.href = 'http://' + window.location.hostname + '/personnormal/index';
+                window.location.href = 'http://' + window.location.hostname + '/person/index/edit';
             } else {
                 alert(data.message);
             }

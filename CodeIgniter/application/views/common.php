@@ -12,7 +12,7 @@
     <link type="text/css" rel="stylesheet" href="<?= base_url() . 'resource/common/common.css' ?>">
 </head>
 <body>
-<div class="wrapper">
+<div class="wrapper" id="container">
     <div class="sidebar" data-image="../resource/imgs/background_img1.jpg">
         <div class="user">
             <div class="photo">
@@ -31,8 +31,9 @@
                     </a>
                     <div class="collapse in" id="personExamples">
                         <ul class="nav">
-                            <li class="active"><a href="">基本设置</a></li>
-                            <li><a href="">安全设置</a></li>
+                            <li class="active"><a href="javascript:;" @click="edit">基本设置</a></li>
+                            <li><a href="javascript:;" @click="avatar">头像设置</a></li>
+                            <li><a href="javascript:;" @click="safe">安全设置</a></li>
                         </ul>
                     </div>
                 </li>
@@ -143,6 +144,11 @@
         </nav>
         <div class="content">
             <div class="container-fluid">
+
+                <?php $this->load->view('persons/personedit'); ?>
+
+                <?php $this->load->view('persons/personavatar'); ?>
+
             </div>
         </div>
         <footer class="footer">
@@ -153,7 +159,9 @@
     </div>
 </div>
 </body>
+<script type="text/javascript" src="<?= base_url() . 'resource/vue.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/jquery-3.3.1.min.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/bootstrap/js/bootstrap.min.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/common/material-dashboard.js' ?>"></script>
+<script type="text/javascript" src="<?= base_url() . 'resource/common/common.js' ?>"></script>
 </html>
