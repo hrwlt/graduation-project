@@ -17,9 +17,9 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">邮箱</label>
+                                <label for="exampleInputEmail1">邮箱（不可修改）</label>
                                 <input type="email" class="form-control" placeholder="邮箱"
-                                       name="email" value="<?php echo $email; ?>">
+                                       name="email" value="<?php echo $email; ?>" disabled>
                             </div>
                         </div>
                     </div>

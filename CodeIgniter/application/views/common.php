@@ -13,10 +13,10 @@
 </head>
 <body>
 <div class="wrapper" id="container">
-    <div class="sidebar" data-image="../resource/imgs/background_img1.jpg">
+    <div class="sidebar" data-image="/resource/imgs/background_img1.jpg">
         <div class="user">
             <div class="photo">
-                <img src="../resource/imgs/default_avatar.png"/>
+                <img src="/resource/imgs/default_avatar.png"/>
             </div>
             <div class="info">
                 <a><?php echo $username; ?></a>
@@ -24,16 +24,24 @@
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
-                <li class="active">
-                    <a data-toggle="collapse" href="#personExamples" aria-expanded="true">
+                <li class="<?php echo in_array($operate, array('personedit', 'personavatar', 'personsafe')) ? 'active' : ''; ?>">
+                    <a data-toggle="collapse" href="#personExamples"
+                       aria-expanded="<?php echo in_array($operate, array('personedit', 'personavatar', 'personsafe')) ? 'true' : 'false'; ?>">
                         <i class="pe-7s-user"></i>
                         <p>个人中心<b class="caret"></b></p>
                     </a>
-                    <div class="collapse in" id="personExamples">
+                    <div id="personExamples"
+                         class="<?php echo in_array($operate, array('personedit', 'personavatar', 'personsafe')) ? 'collapse in' : 'collapse'; ?>">
                         <ul class="nav">
-                            <li class="active"><a href="javascript:;" @click="edit">基本设置</a></li>
-                            <li><a href="javascript:;" @click="avatar">头像设置</a></li>
-                            <li><a href="javascript:;" @click="safe">安全设置</a></li>
+                            <li class="<?php echo 'personedit' == $operate ? 'active' : ''; ?>">
+                                <a href="javascript:;" @click="edit">基本设置</a>
+                            </li>
+                            <li class="<?php echo 'personavatar' == $operate ? 'active' : ''; ?>">
+                                <a href="javascript:;" @click="avatar">头像设置</a>
+                            </li>
+                            <li class="<?php echo 'personsafe' == $operate ? 'active' : ''; ?>">
+                                <a href="javascript:;" @click="safe">安全设置</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -41,9 +49,7 @@
                 <li>
                     <a data-toggle="collapse" href="#formsExamples">
                         <i class="pe-7s-note2"></i>
-                        <p>题库管理
-                            <b class="caret"></b>
-                        </p>
+                        <p>题库管理<b class="caret"></b></p>
                     </a>
                     <div class="collapse" id="formsExamples">
                         <ul class="nav"></ul>
@@ -53,9 +59,7 @@
                 <li>
                     <a data-toggle="collapse" href="#tablesExamples">
                         <i class="pe-7s-news-paper"></i>
-                        <p>教学管理
-                            <b class="caret"></b>
-                        </p>
+                        <p>教学管理<b class="caret"></b></p>
                     </a>
                     <div class="collapse" id="tablesExamples">
                         <ul class="nav"></ul>
@@ -65,9 +69,7 @@
                 <li>
                     <a data-toggle="collapse" href="#mapsExamples">
                         <i class="pe-7s-plugin"></i>
-                        <p>考试管理
-                            <b class="caret"></b>
-                        </p>
+                        <p>考试管理<b class="caret"></b></p>
                     </a>
                     <div class="collapse" id="mapsExamples">
                         <ul class="nav"></ul>
@@ -148,6 +150,8 @@
                 <?php $this->load->view('persons/personedit'); ?>
 
                 <?php $this->load->view('persons/personavatar'); ?>
+
+                <?php $this->load->view('persons/personsafe') ?>
 
             </div>
         </div>

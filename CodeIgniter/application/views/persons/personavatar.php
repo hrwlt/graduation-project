@@ -2,12 +2,12 @@
 <div class="col-md-4" v-else-if="seen === 'personavatar'">
     <div class="card card-user">
         <div class="image">
-            <img src="../resource/imgs/background_img3.jpg" alt="..."/>
+            <img src="/resource/imgs/background_img3.jpg" alt="..."/>
         </div>
         <div class="content">
             <div class="author">
                 <a href="">
-                    <img class="avatar border-gray" src="../resource/imgs/default_avatar.png"
+                    <img class="avatar border-gray" src="/resource/imgs/default_avatar.png"
                          alt="..."/>
                 </a>
             </div>
