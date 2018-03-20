@@ -1,7 +1,7 @@
 var vm = new Vue({
     el: '#container',
     data: {
-        seen: 'personedit'
+        seen: 'home'
     },
     methods: {
         edit: function () {

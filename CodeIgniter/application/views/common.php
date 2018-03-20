@@ -24,28 +24,29 @@
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
-                <li class="<?php echo in_array($operate, array('personedit', 'personavatar', 'personsafe')) ? 'active' : ''; ?>">
+                <!-- 个人中心 -->
+                <li :class="{active:(seen==='personedit'||seen==='personavatar'||seen==='personsafe')}">
                     <a data-toggle="collapse" href="#personExamples"
-                       aria-expanded="<?php echo in_array($operate, array('personedit', 'personavatar', 'personsafe')) ? 'true' : 'false'; ?>">
+                       :aria-expanded="(seen==='personedit'||seen==='personavatar'||seen==='personsafe')?true:false">
                         <i class="pe-7s-user"></i>
                         <p>个人中心<b class="caret"></b></p>
                     </a>
                     <div id="personExamples"
-                         class="<?php echo in_array($operate, array('personedit', 'personavatar', 'personsafe')) ? 'collapse in' : 'collapse'; ?>">
+                         :class="[(seen==='personedit'||seen==='personavatar'||seen==='personsafe')?'collapse in':'collapse']">
                         <ul class="nav">
-                            <li class="<?php echo 'personedit' == $operate ? 'active' : ''; ?>">
+                            <li :class="{active:seen==='personedit'}">
                                 <a href="javascript:;" @click="edit">基本设置</a>
                             </li>
-                            <li class="<?php echo 'personavatar' == $operate ? 'active' : ''; ?>">
+                            <li :class="{active:seen==='personavatar'}">
                                 <a href="javascript:;" @click="avatar">头像设置</a>
                             </li>
-                            <li class="<?php echo 'personsafe' == $operate ? 'active' : ''; ?>">
+                            <li :class="{active:seen==='personsafe'}">
                                 <a href="javascript:;" @click="safe">安全设置</a>
                             </li>
                         </ul>
                     </div>
                 </li>
-
+                <!-- 题库管理 -->
                 <li>
                     <a data-toggle="collapse" href="#formsExamples">
                         <i class="pe-7s-note2"></i>
@@ -55,7 +56,7 @@
                         <ul class="nav"></ul>
                     </div>
                 </li>
-
+                <!-- 教学管理 -->
                 <li>
                     <a data-toggle="collapse" href="#tablesExamples">
                         <i class="pe-7s-news-paper"></i>
@@ -65,7 +66,7 @@
                         <ul class="nav"></ul>
                     </div>
                 </li>
-
+                <!-- 考试管理 -->
                 <li>
                     <a data-toggle="collapse" href="#mapsExamples">
                         <i class="pe-7s-plugin"></i>

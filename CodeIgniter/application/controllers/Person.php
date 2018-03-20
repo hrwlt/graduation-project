@@ -20,7 +20,6 @@ class Person extends CI_Controller {
             default:
                 break;
         }
-        $data['operate'] = $operate;
         $data['username'] = $this->session->username;
         $data['identity'] = $this->session->identity;
         $data['email'] = $this->session->email;
