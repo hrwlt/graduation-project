@@ -21,7 +21,12 @@ class Login extends CI_Controller {
             $obj['message'] = '登录成功！';
             $obj['success'] = TRUE;
             // 添加session
-            $session_array = ['username' => $username, 'identity' => $identity, 'email' => $row->email];
+            $session_array = [
+                'username' => $username,
+                'identity' => $identity,
+                'email' => $row->email,
+                'id' => $row->id
+            ];
             $this->session->set_tempdata($session_array, NULL, 86400);
         } else {
             $obj['message'] = '请输入正确的用户名或密码！';
@@ -68,12 +73,17 @@ class Login extends CI_Controller {
             $obj['success'] = FALSE;
             echo json_encode($obj);
             exit();
-
         }
 
+        $id = $this->user_model->get_by_username($username)->id;
         $obj['message'] = '注册成功！';
         $obj['success'] = TRUE;
-        $session_array = ['username' => $username, 'identity' => $identity, 'email' => $email];
+        $session_array = [
+            'username' => $username,
+            'identity' => $identity,
+            'email' => $email,
+            'id' => $id
+        ];
         $this->session->set_tempdata($session_array, NULL, 86400);
         echo json_encode($obj);
     }
