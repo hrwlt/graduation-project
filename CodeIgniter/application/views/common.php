@@ -194,10 +194,5 @@
 <script type="text/javascript" src="<?= base_url() . 'resource/bootstrap/js/bootstrap.min.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/common/material-dashboard.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/common/common.js' ?>"></script>
-<!--<script type="text/javascript" src="<?= base_url() . 'resource/person/person.js' ?>"></script>-->
-<script>
-    $("#personedit").click(function () {
-        alert(1);
-    });
-</script>
+<script type="text/javascript" src="<?= base_url() . 'resource/person/person.js' ?>"></script>
 </html>

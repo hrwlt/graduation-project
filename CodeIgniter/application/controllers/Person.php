@@ -76,4 +76,43 @@ class Person extends CI_Controller {
 
     }
 
+    public function personsafe() {
+        $username = $this->session->username;
+        $identity = $this->session->identity;
+        $old_password = $this->input->post('old_password');
+        $new_password = $this->input->post('new_password');
+        $confirm_password = $this->input->post('confirm_password');
+
+        $row = $this->user_model->get_by_username_password($username, $old_password, $identity);
+        if (!$row) {
+            $obj['message'] = '请输入正确的旧密码！';
+            $obj['success'] = FALSE;
+            echo json_encode($obj);
+            exit();
+        }
+
+        if (trim($new_password) != trim($confirm_password)) {
+            $obj['message'] = '两次输入密码必须相同！';
+            $obj['success'] = FALSE;
+            echo json_encode($obj);
+            exit();
+        }
+
+        $where = ['id' => $this->session->id];
+        $array = ['password' => md5($new_password)];
+        $result = $this->user_model->update($where, $array);
+        if (!$result) {
+            $obj['message'] = '密码修改失败，请稍后再试！';
+            $obj['success'] = FALSE;
+            echo json_encode($obj);
+            exit();
+        }
+
+        $obj['message'] = '密码修改成功！';
+        $obj['success'] = TRUE;
+        echo json_encode($obj);
+        exit();
+
+    }
+
 }

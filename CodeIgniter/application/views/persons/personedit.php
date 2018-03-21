@@ -6,7 +6,7 @@
                 <h4 class="title">编辑个人信息</h4>
             </div>
             <div class="content">
-                <form id="personeditform" action="" method="post">
+                <form id="personeditForm" action="" method="post">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
