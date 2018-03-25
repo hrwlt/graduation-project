@@ -11,7 +11,7 @@
                             <div class="col-md-10 col-md-offset-1">
                                 <div class="form-group">
                                     <label class="control-label">旧密码</label>
-                                    <input class="form-control" type="text" placeholder="旧密码"
+                                    <input class="form-control" type="password" placeholder="旧密码"
                                            name="old_password">
                                 </div>
                             </div>
@@ -20,14 +20,14 @@
                             <div class="col-md-5 col-md-offset-1">
                                 <div class="form-group">
                                     <label class="control-label">新密码</label>
-                                    <input class="form-control" type="text" placeholder="新密啊"
+                                    <input class="form-control" type="password" placeholder="新密码"
                                            name="new_password">
                                 </div>
                             </div>
                             <div class="col-md-5">
                                 <div class="form-group">
                                     <label class="control-label">确认密码</label>
-                                    <input class="form-control" type="text" placeholder="确认密码"
+                                    <input class="form-control" type="password" placeholder="确认密码"
                                            name="confirm_password">
                                 </div>
                             </div>
@@ -36,7 +36,8 @@
                 </div>
                 <div class="footer">
                     <button type="reset" class="btn btn-default btn-fill btn-wd btn-back pull-left">重置</button>
-                    <button id="personsafe" type="button" class="btn btn-info btn-fill btn-wd btn-next pull-right">确认修改</button>
+                    <button onclick="personsafe()" type="button" class="btn btn-info btn-fill btn-wd btn-next pull-right">确认修改
+                    </button>
                     <div class="clearfix"></div>
                 </div>
             </form>

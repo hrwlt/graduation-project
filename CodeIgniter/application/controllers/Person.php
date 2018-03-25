@@ -31,6 +31,7 @@ class Person extends CI_Controller {
         $data['address'] = $this->session->address;
         $data['city'] = $this->session->city;
         $data['profile'] = $this->session->profile;
+        $data['avatar'] = empty($this->session->avatar) ? '/resource/imgs/default_avatar.png' : '/resource/imgs/' . $this->session->avatar;
         $this->load->view('common', $data);
     }
 
@@ -41,6 +42,14 @@ class Person extends CI_Controller {
         $address = $this->input->post('address');
         $profile = $this->input->post('profile');
         $update_time = time();
+
+        if (!isset($this->session->id)) {
+            $obj['message'] = '请先登录！';
+            $obj['success'] = FALSE;
+            $obj['url'] = '/login/index';
+            echo json_encode($obj);
+            exit();
+        }
 
         $where = [
             'id' => $this->session->id
@@ -73,7 +82,6 @@ class Person extends CI_Controller {
 
         echo json_encode($obj);
         exit();
-
     }
 
     public function personsafe() {
@@ -82,6 +90,13 @@ class Person extends CI_Controller {
         $old_password = $this->input->post('old_password');
         $new_password = $this->input->post('new_password');
         $confirm_password = $this->input->post('confirm_password');
+
+        if (!isset($this->session->id)) {
+            $obj['message'] = '请先登录！';
+            $obj['success'] = FALSE;
+            echo json_encode($obj);
+            exit();
+        }
 
         $row = $this->user_model->get_by_username_password($username, $old_password, $identity);
         if (!$row) {
@@ -112,7 +127,34 @@ class Person extends CI_Controller {
         $obj['success'] = TRUE;
         echo json_encode($obj);
         exit();
+    }
 
+    public function upload_avatar() {
+        $config['upload_path'] = getcwd() . '/resource/imgs/';
+        $config['allowed_types'] = 'text|gif|jpg|png';
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('userfile')) {
+            var_dump($this->upload->display_errors());
+        } else {
+            $upload_data = $this->upload->data();
+            $file_name = $upload_data['file_name'];
+            $where = ['id' => $this->session->id];
+            $array = ['avatar' => $file_name];
+            $result = $this->user_model->update($where, $array);
+            if (!$result) {
+
+            }
+            $session_array = [
+                'avatar' => $file_name,
+            ];
+            $this->session->set_tempdata($session_array, NULL, 86400);
+            redirect('/person/index/personavatar');
+        }
+    }
+
+    public function upload() {
+        $this->load->view('upload');
     }
 
 }

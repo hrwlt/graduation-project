@@ -64,7 +64,7 @@
                             </div>
                         </div>
                     </div>
-                    <button id="personedit" type="button" class="btn btn-info btn-fill pull-right">
+                    <button onclick="personedit()" type="button" class="btn btn-info btn-fill pull-right">
                         修改成功并保存
                     </button>
                     <div class="clearfix"></div>

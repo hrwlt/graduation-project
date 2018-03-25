@@ -18,6 +18,7 @@ class Home extends CI_Controller {
         $data['address'] = $this->session->address;
         $data['city'] = $this->session->city;
         $data['profile'] = $this->session->profile;
+        $data['avatar'] = empty($this->session->avatar) ? '/resource/imgs/default_avatar.png' : '/resource/imgs/' . $this->session->avatar;
         $this->load->view('common', $data);
     }
 

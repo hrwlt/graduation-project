@@ -22,10 +22,16 @@ class Login extends CI_Controller {
             $obj['success'] = TRUE;
             // 添加session
             $session_array = [
+                'id' => $row->id,
                 'username' => $username,
                 'identity' => $identity,
                 'email' => $row->email,
-                'id' => $row->id
+                'tel' => $row->tel,
+                'qq' => $row->qq,
+                'city' => $row->city,
+                'address' => $row->address,
+                'profile' => $row->profile,
+                'avatar' => $row->avatar
             ];
             $this->session->set_tempdata($session_array, NULL, 86400);
         } else {
@@ -79,10 +85,10 @@ class Login extends CI_Controller {
         $obj['message'] = '注册成功！';
         $obj['success'] = TRUE;
         $session_array = [
+            'id' => $id,
             'username' => $username,
             'identity' => $identity,
-            'email' => $email,
-            'id' => $id
+            'email' => $email
         ];
         $this->session->set_tempdata($session_array, NULL, 86400);
         echo json_encode($obj);

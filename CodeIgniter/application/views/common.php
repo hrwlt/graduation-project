@@ -20,7 +20,7 @@
     <div class="sidebar" data-image="/resource/imgs/background_img1.jpg">
         <div class="user">
             <div class="photo">
-                <img src="/resource/imgs/default_avatar.png"/>
+                <img src="<?php echo $avatar; ?>">
             </div>
             <div class="info">
                 <a><?php echo $username; ?></a>
@@ -64,7 +64,7 @@
                                 <a href="javascript:;" @click="questionlist">我的题库</a>
                             </li>
                             <li :class="{active:seen==='knowledgelist'}">
-                                <a href="javascript:;" @click="knowledgelist">我的知识点库</a>
+                                <a href="javascript:;" @click="knowledgelist" onclick="knowledge()">我的知识点库</a>
                             </li>
                         </ul>
                     </div>
@@ -125,13 +125,6 @@
                     <a class="navbar-brand" href="javascript:;">{{title}}</a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <!-- 搜索 -->
-                    <form class="navbar-form navbar-left navbar-search-form" role="search">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                            <input type="text" class="form-control" placeholder="Search...">
-                        </div>
-                    </form>
                     <!-- 更多 -->
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown dropdown-with-icons">
@@ -179,6 +172,8 @@
 
                 <?php $this->load->view('persons/personsafe') ?>
 
+                <?php $this->load->view('question/knowledge') ?>
+
             </div>
         </div>
         <footer class="footer">
@@ -189,10 +184,12 @@
     </div>
 </div>
 </body>
-<script type="text/javascript" src="<?= base_url() . 'resource/vue.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/jquery-3.3.1.min.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/bootstrap/js/bootstrap.min.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/common/material-dashboard.js' ?>"></script>
+<script type="text/javascript" src="<?= base_url() . 'resource/jquery-datatable.js' ?>"></script>
+<script type="text/javascript" src="<?= base_url() . 'resource/vue.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/common/common.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/person/person.js' ?>"></script>
+<script type="text/javascript" src="<?= base_url() . 'resource/question/question.js' ?>"></script>
 </html>

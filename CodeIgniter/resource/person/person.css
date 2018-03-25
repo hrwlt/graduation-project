@@ -1,0 +1,38 @@
+.upload_avatar {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    width: auto;
+    background-color: #fff;
+    border: solid 1px #447DF7;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 18px;
+    color: #447DF7;
+    text-decoration: none;
+}
+
+.upload_avatar :hover {
+    cursor: pointer;
+}
+
+.upload_avatar input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    transform: translate(-300px, 0px) scale(4);
+    height: 40px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.fileerror, .filename {
+    color: #330066;
+    font-size: 13px;
+    margin: auto;
+    padding: 0;
+}
