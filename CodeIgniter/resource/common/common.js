@@ -34,15 +34,25 @@ var vm = new Vue({
             this.operate = 'question';
             this.seen = 'knowledgelist';
         },
-        source: function () {
+        courselist: function () {
             this.title = '我的课程';
             this.operate = 'teach';
-            this.seen = 'source';
+            this.seen = 'courselist';
         },
         exam: function () {
             this.title = '考试列表';
             this.operate = 'exam';
             this.seen = 'exam';
+        },
+        myExam: function () {
+            this.title = '我的考试';
+            this.operate = 'myExam';
+            this.seen = 'myExam';
+        },
+        myCourse: function () {
+            this.title = '我的课程';
+            this.operate = 'myCourse';
+            this.seen = 'myCourse';
         }
     }
 });
