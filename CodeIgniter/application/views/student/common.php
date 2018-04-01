@@ -153,6 +153,8 @@
 
                 <?php $this->load->view('persons/personsafe') ?>
 
+                <?php $this->load->view('student/course') ?>
+
             </div>
         </div>
         <footer class="footer">

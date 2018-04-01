@@ -7,6 +7,7 @@ class Person extends CI_Controller {
         $this->load->model('user_model');
         $this->load->model('teacher/course_model');
         $this->load->model('teacher/knowledge_model');
+        $this->load->model('teacher/question_model');
     }
 
     public function index($seen) {
@@ -34,12 +35,15 @@ class Person extends CI_Controller {
         $data['city'] = $this->session->city;
         $data['profile'] = $this->session->profile;
         $data['avatar'] = empty($this->session->avatar) ? '/resource/imgs/default_avatar.png' : '/resource/imgs/' . $this->session->avatar;
-        $data['course_list'] = $this->course_model->get_by_teacher($this->session->username);
-        $data['knowledge_list'] = $this->knowledge_model->get_by_creater($this->session->username);
-        if ($this->session->identity == 0) {
+        if ($this->session->identity === '0') {
+            $data['course_list'] = $this->course_model->get_by_teacher($this->session->username);
+            $data['knowledge_list'] = $this->knowledge_model->get_by_creater($this->session->username);
+            $data['question_list'] = $this->question_model->get_by_creater($this->session->username);
             $this->load->view('teacher/common', $data);
-        } else if ($this->session->identity == 1) {
+        } else if ($this->session->identity === '1') {
             $this->load->view('student/common', $data);
+        } else {
+            var_dump('请先登录！');
         }
     }
 
