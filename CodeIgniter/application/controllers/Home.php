@@ -2,6 +2,19 @@
 
 class Home extends CI_Controller {
 
+    private static $ARRAY_TITLE = array(
+        "home" => "首页",
+        "personedit" => "个人中心-基本设置",
+        "personavatar" => "个人中心-头像设置",
+        "personsafe" => "个人中心-安全设置",
+        "question" => "我的试题库",
+        "knowledge" => "我的知识点库",
+        "course" => "我的课程",
+        "exam" => "考试列表",
+        "myCourse" => "我的课程",
+        "myExam" => "我的考试"
+    );
+
     public function __construct() {
         parent::__construct();
         $this->load->model('teacher/course_model');
@@ -11,10 +24,10 @@ class Home extends CI_Controller {
         $this->load->model('student/student_course_model');
     }
 
-    public function index() {
-        $data['title'] = '首页';
-        $data['operate'] = 'home';
-        $data['seen'] = 'home';
+    public function index($title, $operate, $seen) {
+        $data['title'] = $this::$ARRAY_TITLE[$title];
+        $data['operate'] = $operate;
+        $data['seen'] = $seen;
         $data['username'] = $this->session->username;
         $data['identity'] = $this->session->identity;
         $data['email'] = $this->session->email;

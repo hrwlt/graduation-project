@@ -31,12 +31,12 @@ var vm = new Vue({
         },
         knowledgelist: function () {
             this.title = '我的知识点库';
-            this.operate = 'question';
+            this.operate = 'knowledge';
             this.seen = 'knowledgelist';
         },
         courselist: function () {
             this.title = '我的课程';
-            this.operate = 'teach';
+            this.operate = 'course';
             this.seen = 'courselist';
         },
         exam: function () {
@@ -57,9 +57,9 @@ var vm = new Vue({
     }
 });
 
-function course_change(obj){
+function course_change(obj) {
     $(".course_list").hide();
-    if(obj.value != 0){
+    if (obj.value != 0) {
         $("#div" + obj.value).show();
     }
 }
@@ -103,7 +103,7 @@ function course() {
     });
 }
 
-function chose(){
+function chose() {
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -116,9 +116,9 @@ function chose(){
                     type: "success",
                     timer: 1000,
                     showConfirmButton: false
-                },function(){
+                }, function () {
                     window.location.href = 'http://' + window.location.hostname + '/student/course/index';
-                });  
+                });
             } else {
                 swal({
                     title: "选修失败！",
@@ -174,7 +174,47 @@ function knowledge() {
         });
         table.on('click', '.remove', function (e) {
             //数据库中这行删除
-
+            $knowledge_id = $(this).parent().parent().children('td').eq(0).text();
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "/teacher/question/knowledge",
+                data: "knowledge_id=" + $knowledge_id,
+                success: function (data) {
+                    if (data.success == true) {
+                        swal({
+                            title: "删除成功！",
+                            type: "success",
+                            showConfirmButton: false,
+                            showCancelButton: true,
+                            cancelButtonClass: "btn btn-danger btn-fill",
+                            cancelButtonText: "关闭"
+                        }, function () {
+                            window.location.href = 'http://' + window.location.hostname + '/home/index/我的知识点库/knowledge/knowledgelist';
+                        });
+                    } else {
+                        swal({
+                            title: "删除失败！",
+                            text: data.message,
+                            type: "warning",
+                            showConfirmButton: false,
+                            showCancelButton: true,
+                            cancelButtonClass: "btn btn-danger btn-fill",
+                            cancelButtonText: "关闭"
+                        });
+                    }
+                },
+                error: function () {
+                    swal({
+                        title: "删除异常，请稍后再试！",
+                        type: "warning",
+                        showConfirmButton: false,
+                        showCancelButton: true,
+                        cancelButtonClass: "btn btn-danger btn-fill",
+                        cancelButtonText: "关闭"
+                    });
+                }
+            });
             //列表中这行删除
             $tr = $(this).closest('tr');
             table.row($tr).remove().draw();

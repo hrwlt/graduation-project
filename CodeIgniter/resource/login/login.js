@@ -157,7 +157,7 @@ $("#login").click(function () {
                     timer: 1000,
                     showConfirmButton: false
                 },function(){
-                    window.location.href = 'http://' + window.location.hostname + '/home/index';
+                    window.location.href = 'http://' + window.location.hostname + '/home/index/home/home/home';
                 });
             } else {
                 swal({

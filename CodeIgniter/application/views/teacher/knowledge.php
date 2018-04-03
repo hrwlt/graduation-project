@@ -1,6 +1,7 @@
 <div class="row" v-else-if="seen==='knowledgelist'">
     <div class="col-md-12">
         <div class="card">
+            <button type="button" class="btn btn-primary knowledge">新建知识点</button>
             <div class="content">
                 <div class="fresh-datatables">
                     <table id="knowledge" class="table table-striped table-no-bordered table-hover">
