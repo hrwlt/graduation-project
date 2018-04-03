@@ -28,7 +28,7 @@ class Course_model extends CI_Model {
     }
 
     public function get_all() {
-        $sql = 'SELECT * FROM ' . $this->get_table_name();
+        $sql = 'SELECT * FROM ' . $this->get_table_name() . ' WHERE status= "进行中" AND destory = 0';
         $query = $this->db->query($sql);
         return $query->result();
     }

@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="<?= base_url() . 'resource/bootstrap/css/bootstrap.min.css' ?>">
+    <link type="text/css" rel="stylesheet" href="<?= base_url() . 'resource/common/material-dashboard.css' ?>">
     <link type="text/css" rel="stylesheet" href="<?= base_url() . 'resource/login/login.css' ?>">
 </head>
 <body>
@@ -68,11 +70,12 @@
         <div class="clear"></div>
     </div>
     <div class="clear"></div>
-    <div class="footer">
+    <div class="foot">
         <p>&copy; 2018 HZNU DODO All Design By HR</p>
     </div>
 </section>
 <script src="<?= base_url() . 'resource/jquery-3.3.1.min.js' ?>"></script>
+<script type="text/javascript" src="<?= base_url() . 'resource/sweetalert.js' ?>"></script>
 <script src="<?= base_url() . 'resource/login/login.js' ?>"></script>
 </body>
 </html>

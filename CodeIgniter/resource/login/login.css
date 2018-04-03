@@ -44,7 +44,7 @@ h1 {
 .cbImage {
     border-radius: 10px;
     width: 300px;
-    height: 400px;
+    height: 435px;
     float: left;
     margin: 95px 0px 25px 0px;
     position: absolute;
@@ -97,6 +97,7 @@ h1 {
 
 input[type="text"] {
     width: 80%;
+    height: 30%;
     padding: 10px;
     border: none;
     outline: none;
@@ -109,6 +110,7 @@ input[type="text"] {
 
 input[type="password"] {
     width: 80%;
+    height: 30%;
     padding: 10px;
     border: none;
     outline: none;
@@ -117,6 +119,10 @@ input[type="password"] {
     background: transparent;
     margin: 0 0px 26px 0px;
     color: #39eac3;
+}
+
+input[type="radio"]{
+    margin-right: 3px;
 }
 
 /* input框默认显示的字体颜色为#39eac3 */
@@ -156,9 +162,10 @@ input[type="button"]:hover {
     -ms-transition: 0.5s all;
 }
 
-.footer p {
+.foot p {
     padding-bottom: 30px;
     font-size: 14px;
+    font-weight: bolder;
     color: #fff;
     text-align: center;
     letter-spacing: 1px;

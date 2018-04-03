@@ -96,7 +96,7 @@
                          :class="operate==='exam'?'collapse in':'collapse'">
                         <ul class="nav">
                             <li :class="{active:seen==='exam'}">
-                                <a href="javascript:;" @click="exam">考试列表</a>
+                                <a href="javascript:;" @click="exam" onclick="exam()">考试列表</a>
                             </li>
                         </ul>
                     </div>
@@ -178,6 +178,8 @@
 
                 <?php $this->load->view('teacher/course/course') ?>
 
+                <?php $this->load->view('teacher/exam') ?>
+
             </div>
         </div>
         <footer class="footer">
@@ -192,9 +194,8 @@
 <script type="text/javascript" src="<?= base_url() . 'resource/bootstrap/js/bootstrap.min.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/common/material-dashboard.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/jquery-datatable.js' ?>"></script>
+<script type="text/javascript" src="<?= base_url() . 'resource/sweetalert.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/vue.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/common/common.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/person/person.js' ?>"></script>
-<script type="text/javascript" src="<?= base_url() . 'resource/question/question.js' ?>"></script>
-<script type="text/javascript" src="<?= base_url() . 'resource/course/course.js' ?>"></script>
 </html>

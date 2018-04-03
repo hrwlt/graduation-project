@@ -40,6 +40,7 @@ class Person extends CI_Controller {
             $data['course_list'] = $this->course_model->get_by_teacher($this->session->username);
             $data['knowledge_list'] = $this->knowledge_model->get_by_creater($this->session->username);
             $data['question_list'] = $this->question_model->get_by_creater($this->session->username);
+            $data['exam_lists'] = $this->exam_model->get_by_creater($this->session->username);
             $this->load->view('teacher/common', $data);
         } else if ($this->session->identity === '1') {
             //获取学生用户对应的课程及信息
@@ -130,6 +131,13 @@ class Person extends CI_Controller {
         $row = $this->user_model->get_by_username_password($username, $old_password, $identity);
         if (!$row) {
             $obj['message'] = '请输入正确的旧密码！';
+            $obj['success'] = FALSE;
+            echo json_encode($obj);
+            exit();
+        }
+
+        if (!$new_password) {
+            $obj['message'] = '新密码不能为空！';
             $obj['success'] = FALSE;
             echo json_encode($obj);
             exit();

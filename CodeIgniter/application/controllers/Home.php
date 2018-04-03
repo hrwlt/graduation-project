@@ -7,6 +7,7 @@ class Home extends CI_Controller {
         $this->load->model('teacher/course_model');
         $this->load->model('teacher/knowledge_model');
         $this->load->model('teacher/question_model');
+        $this->load->model('teacher/exam_model');
         $this->load->model('student/student_course_model');
     }
 
@@ -27,6 +28,7 @@ class Home extends CI_Controller {
             $data['course_list'] = $this->course_model->get_by_teacher($this->session->username);
             $data['knowledge_list'] = $this->knowledge_model->get_by_creater($this->session->username);
             $data['question_list'] = $this->question_model->get_by_creater($this->session->username);
+            $data['exam_lists'] = $this->exam_model->get_by_creater($this->session->username);
             $this->load->view('teacher/common', $data);
         } else if ($this->session->identity === '1') {
             //获取学生用户对应的课程及信息

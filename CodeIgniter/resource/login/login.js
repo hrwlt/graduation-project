@@ -151,13 +151,35 @@ $("#login").click(function () {
         data: $('#loginForm').serialize(),
         success: function (data) {
             if (data.success == true) {
-                window.location.href = 'http://' + window.location.hostname + '/home/index';
+                swal({
+                    title: "登录成功！",
+                    type: "success",
+                    timer: 1000,
+                    showConfirmButton: false
+                },function(){
+                    window.location.href = 'http://' + window.location.hostname + '/home/index';
+                });
             } else {
-                alert(data.message);
+                swal({
+                    title: "登录失败！",
+                    text: data.message,
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
             }
         },
         error: function () {
-            alert("登录异常，请稍后再试！");
+            swal({
+                title: "登录异常，请稍后再试！",
+                type: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonClass: "btn btn-danger btn-fill",
+                cancelButtonText: "关闭"
+            });
         }
     });
 });
@@ -170,13 +192,35 @@ $("#register").click(function () {
         data: $('#registerForm').serialize(),
         success: function (data) {
             if (data.success == true) {
-                window.location.href = 'http://' + window.location.hostname + '/person/index/personedit';
+                swal({
+                    title: "注册成功！",
+                    type: "success",
+                    timer: 1000,
+                    showConfirmButton: false
+                },function(){
+                    window.location.href = 'http://' + window.location.hostname + '/person/index/personedit';
+                });
             } else {
-                alert(data.message);
+                swal({
+                    title: "注册失败！",
+                    text: data.message,
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
             }
         },
         error: function () {
-            alert("登录异常，请稍后再试！");
+            swal({
+                title: "注册异常，请稍后再试！",
+                type: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonClass: "btn btn-danger btn-fill",
+                cancelButtonText: "关闭"
+            });
         }
     });
 });

@@ -6,13 +6,35 @@ function personedit() {
         data: $('#personeditForm').serialize(),
         success: function (data) {
             if (data.success == true) {
-                window.location.href = 'http://' + window.location.hostname + '/person/index/personedit';
+                swal({
+                    title: "编辑成功！",
+                    type: "success",
+                    timer: 1000,
+                    showConfirmButton: false
+                },function(){
+                    window.location.href = 'http://' + window.location.hostname + '/person/index/personedit';
+                });  
             } else {
-                alert(data.message);
+                swal({
+                    title: "编辑失败！",
+                    text: data.message,
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
             }
         },
         error: function () {
-            alert("登录异常，请稍后再试！");
+            swal({
+                title: "编辑异常，请稍后再试！",
+                type: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonClass: "btn btn-danger btn-fill",
+                cancelButtonText: "关闭"
+            });
         }
     });
 }
@@ -25,14 +47,35 @@ function personsafe() {
         data: $('#personsafeForm').serialize(),
         success: function (data) {
             if (data.success == true) {
-                alert(data.message);
-                window.location.href = 'http://' + window.location.hostname + '/login/index';
+                swal({
+                    title: "密码修改成功！",
+                    type: "success",
+                    timer: 1000,
+                    showConfirmButton: false
+                },function(){
+                    window.location.href = 'http://' + window.location.hostname + '/login/index';
+                });
             } else {
-                alert(data.message);
+                swal({
+                    title: "密码修改失败！",
+                    text: data.message,
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
             }
         },
         error: function () {
-            alert("登录异常，请稍后再试！");
+            swal({
+                title: "密码修改异常，请稍后再试！",
+                type: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonClass: "btn btn-danger btn-fill",
+                cancelButtonText: "关闭"
+            });
         }
     });
 }

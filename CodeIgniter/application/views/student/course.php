@@ -6,10 +6,10 @@
                 <table class="table table-bigboy">
                     <thead>
                     <tr>
-                        <th class="text-center">封面</th>
-                        <th class="text-center">课程名</th>
-                        <th class="text-center">课程简介</th>
-                        <th class="text-center">状态</th>
+                        <th class="text-center" width="133px">封面</th>
+                        <th class="text-center" width="155px">课程名</th>
+                        <th class="text-center" width="344px">课程简介</th>
+                        <th class="text-center" width="88px">状态</th>
                         <th class="text-center">更多</th>
                         <th></th>
                     </tr>
@@ -49,32 +49,47 @@
              aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form method="post" action="/student/course/chose_course">
+                    <form id="course_list" method="post" action="/student/course/chose_course">
                         <div class="modal-header">
-                            <ul role="tablist">
-                                <select name="course_id">
-                                    <? foreach ($course_lists as $course_list) { ?>
-                                        <option value="<?php echo $course_list->id; ?>">
-                                            <li><a href="#message"
-                                                   data-toggle="tab"><?php echo $course_list->course_name; ?>
-                                                </a></li>
-                                        </option>
-                                    <?php } ?>
-                                </select>
-                            </ul>
+                            <label>请选择课程：</label>
+                            <select name="course_id" style="height: 30px;" onchange="course_change(this)">
+                                <option value="0" selected>请选择你想选休课程</option>
+                                <? foreach ($course_lists as $course_list) { ?>
+                                    <option value="<?php echo $course_list->id; ?>">
+                                        <?php echo $course_list->course_name; ?>
+                                    </option>
+                                <?php } ?>
+                            </select>
                         </div>
                         <div class="modal-body">
-                            <div class="tab-content">
-                                <div id="info" class="tab-pane active">
-                                    <p style="font-size: 15px;">dddd</p>
-                                </div>
-                                <div id="message" class="tab-pane">
-                                    <p style="font-size: 15px;">暂无消息</p>
-                                </div>
-                            </div>
+                            <table class="table table-bigboy">
+                                <thead>
+                                <tr>
+                                    <th class="text-center" width="111px">封面</th>
+                                    <th class="text-center" width="333px">课程简介</th>
+                                    <th class="text-center">任课老师</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php foreach ($course_lists as $course_list) { ?>
+                                    <tr class="course_list" id="div<?php echo $course_list->id; ?>" style="display: none;">
+                                        <td>
+                                            <img class="img-container" src="/resource/imgs/<?php echo $course_list->course_img; ?>">
+                                        </td>
+                                        <td class="text-center">
+                                            <?php echo $course_list->course_instruction; ?>
+                                        </td>
+                                        <td class="text-center">
+                                            <?php echo $course_list->teacher; ?>
+                                        </td>
+                                    </tr>
+                                <? } ?>
+                                </tbody>
+                            </table>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">确认选择</button>
+                            <button type="button" class="btn btn-primary" onclick="chose()">确认选择</button>
                         </div>
                     </form>
                 </div>

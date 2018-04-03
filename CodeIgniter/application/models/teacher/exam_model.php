@@ -26,9 +26,9 @@ class Exam_model extends CI_Model {
         return $this->db->update($this->get_table_name(), $data, $where);
     }
 
-    public function get_by_creater($creater, $monitor_teacher) {
+    public function get_by_creater($creater) {
         $sql = 'SELECT * FROM ' . $this->get_table_name() . ' WHERE creater = ? OR monitor_teacher = ?';
-        $query = $this->db->query($sql, array($creater, $monitor_teacher));
+        $query = $this->db->query($sql, array($creater, $creater));
         return $query->result();
     }
 

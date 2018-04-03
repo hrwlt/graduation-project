@@ -5626,8 +5626,8 @@ form label.radio, form label.checkbox {
 }
 
 .table-bigboy .img-container {
-    width: 180px;
-    height: 120px;
+    width: 117px;
+    height: 150px;
     overflow: hidden;
     display: block;
     border-radius: 6px;
@@ -5635,6 +5635,7 @@ form label.radio, form label.checkbox {
 
 .table-bigboy .img-container img {
     width: 100%;
+    height: 100%;
 }
 
 .table > thead > tr > td.success,

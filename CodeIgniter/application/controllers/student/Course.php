@@ -52,9 +52,29 @@ class Course extends CI_Controller {
         }
     }
 
-    public function chose_course(){
+    public function chose_course() {
         $course_id = $this->input->post('course_id');
-        var_dump($course_id);
+        $username = $this->session->username;
+        if (!$username) {
+            $obj['message'] = "你还未登录！";
+            $obj['success'] = FALSE;
+            echo json_encode($obj);
+            exit();
+        } else {
+            $row = $this->student_course_model->get_by_username_course_id($username, $course_id);
+            if ($row) {
+                $obj['message'] = "你已经选修该课程！";
+                $obj['success'] = FALSE;
+                echo json_encode($obj);
+                exit();
+            } else {
+                $this->student_course_model->add($username, $course_id);
+                $obj['message'] = "选修成功！";
+                $obj['success'] = TRUE;
+                echo json_encode($obj);
+                exit();
+            }
+        }
     }
 
 }

@@ -88,7 +88,13 @@ class Login extends CI_Controller {
             'id' => $id,
             'username' => $username,
             'identity' => $identity,
-            'email' => $email
+            'email' => $email,
+            'tel' => '',
+            'qq' => '',
+            'city' => '',
+            'address' => '',
+            'profile' => '',
+            'avatar' => ''
         ];
         $this->session->set_tempdata($session_array, NULL, 86400);
         echo json_encode($obj);
