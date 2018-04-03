@@ -1,3 +1,8 @@
 #title, #operate, #seen {
     display: none;
 }
+
+.myCourse {
+    margin-left: 10px;
+    margin-bottom: 15px;
+}

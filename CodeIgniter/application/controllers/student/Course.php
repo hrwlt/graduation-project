@@ -1,9 +1,10 @@
 <?php
 
-class Home extends CI_Controller {
+class Course extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model('user_model');
         $this->load->model('teacher/course_model');
         $this->load->model('teacher/knowledge_model');
         $this->load->model('teacher/question_model');
@@ -11,9 +12,9 @@ class Home extends CI_Controller {
     }
 
     public function index() {
-        $data['title'] = '首页';
-        $data['operate'] = 'home';
-        $data['seen'] = 'home';
+        $data['title'] = '我的课程';
+        $data['operate'] = 'myCourse';
+        $data['seen'] = 'myCourse';
         $data['username'] = $this->session->username;
         $data['identity'] = $this->session->identity;
         $data['email'] = $this->session->email;
@@ -49,6 +50,11 @@ class Home extends CI_Controller {
         } else {
             var_dump('请先登录！');
         }
+    }
+
+    public function chose_course(){
+        $course_id = $this->input->post('course_id');
+        var_dump($course_id);
     }
 
 }

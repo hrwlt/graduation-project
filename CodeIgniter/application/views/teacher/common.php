@@ -136,17 +136,17 @@
                             </a>
                             <ul class="dropdown-menu dropdown-with-icons">
                                 <li>
-                                    <a href="">
+                                    <a href="javascript:;">
                                         <i class="pe-7s-mail"></i> 信息
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="javascript:;">
                                         <i class="pe-7s-help1"></i> 帮助
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="javascript:;">
                                         <i class="pe-7s-tools"></i> 设置
                                     </a>
                                 </li>

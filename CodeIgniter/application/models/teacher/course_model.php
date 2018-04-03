@@ -27,6 +27,12 @@ class Course_model extends CI_Model {
         return $this->db->update($this->get_table_name(), $data, $where);
     }
 
+    public function get_all() {
+        $sql = 'SELECT * FROM ' . $this->get_table_name();
+        $query = $this->db->query($sql);
+        return $query->result();
+    }
+
     public function get_by_teacher($teacher) {
         $sql = 'SELECT * FROM ' . $this->get_table_name() . ' WHERE teacher = ? AND destory = 0';
         $query = $this->db->query($sql, array($teacher));
