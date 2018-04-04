@@ -8,7 +8,7 @@ class Knowledge extends CI_Controller {
 
     public function delete_knowledge(){
         $knowledge_id = $this->input->post('knowledge_id');
-        $obj['id'] = $knowledge_id;
+        $obj['knowledge_id'] = $knowledge_id;
         $obj['success'] = TRUE;
         echo json_encode($obj);
         exit();

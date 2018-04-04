@@ -12,7 +12,7 @@ function personedit() {
                     timer: 1000,
                     showConfirmButton: false
                 },function(){
-                    window.location.href = 'http://' + window.location.hostname + '/person/index/personedit';
+                    window.location.href = 'http://' + window.location.hostname + '/home/index/personedit/person/personedit';
                 });  
             } else {
                 swal({

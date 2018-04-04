@@ -70,14 +70,14 @@
                     </div>
                 </li>
                 <!-- 教学管理 -->
-                <li :class="{active:operate==='teach'}">
+                <li :class="{active:operate==='course'}">
                     <a data-toggle="collapse" href="#teachExamples"
-                       :aria-expanded="operate==='teach'?'true':'false'">
+                       :aria-expanded="operate==='course'?'true':'false'">
                         <i class="pe-7s-news-paper"></i>
                         <p>教学管理<b class="caret"></b></p>
                     </a>
                     <div id="teachExamples"
-                         :class="operate==='teach'?'collapse in':'collapse'">
+                         :class="operate==='course'?'collapse in':'collapse'">
                         <ul class="nav">
                             <li :class="{active:seen==='courselist'}">
                                 <a href="javascript:;" @click="courselist" onclick="course()">我的课程</a>
@@ -96,7 +96,7 @@
                          :class="operate==='exam'?'collapse in':'collapse'">
                         <ul class="nav">
                             <li :class="{active:seen==='exam'}">
-                                <a href="javascript:;" @click="exam" onclick="exam()">考试列表</a>
+                                <a href="javascript:;" @click="exam" onclick="teach_exam()">考试列表</a>
                             </li>
                         </ul>
                     </div>
@@ -172,11 +172,11 @@
 
                 <?php $this->load->view('persons/personsafe') ?>
 
-                <?php $this->load->view('teacher/question/question') ?>
+                <?php $this->load->view('teacher/question') ?>
 
-                <?php $this->load->view('teacher/question/knowledge') ?>
+                <?php $this->load->view('teacher/knowledge') ?>
 
-                <?php $this->load->view('teacher/course/course') ?>
+                <?php $this->load->view('teacher/course') ?>
 
                 <?php $this->load->view('teacher/exam') ?>
 

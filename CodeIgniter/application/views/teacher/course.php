@@ -6,6 +6,7 @@
                     <table id="course" class="table table-striped table-no-bordered table-hover">
                         <thead>
                         <tr>
+                            <th class="text-center">ID</th>
                             <th class="text-center">课程</th>
                             <th class="text-center">任课老师</th>
                             <th class="text-center">学生人数</th>
@@ -17,6 +18,7 @@
                         <tbody>
                         <?php foreach ($course_list as $course) { ?>
                             <tr>
+                                <td class="text-center"><?php echo $course->id; ?></td>
                                 <td class="text-center"><?php echo $course->course_name; ?></td>
                                 <td class="text-center"><?php echo $course->teacher; ?></td>
                                 <td class="text-center"><?php echo $course->student_num; ?></td>

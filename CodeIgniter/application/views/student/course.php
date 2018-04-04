@@ -73,9 +73,12 @@
                                 </thead>
                                 <tbody>
                                 <?php foreach ($course_lists as $course_list) { ?>
-                                    <tr class="course_list" id="div<?php echo $course_list->id; ?>" style="display: none;">
+                                    <tr class="course_list" id="div<?php echo $course_list->id; ?>"
+                                        style="display: none;">
                                         <td>
-                                            <img class="img-container" src="/resource/imgs/<?php echo $course_list->course_img; ?>">
+                                            <div class="img-container">
+                                                <img src="/resource/imgs/<?php echo $course_list->course_img; ?>">
+                                            </div>
                                         </td>
                                         <td class="text-center">
                                             <?php echo $course_list->course_instruction; ?>

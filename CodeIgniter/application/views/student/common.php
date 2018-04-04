@@ -173,5 +173,4 @@
 <script type="text/javascript" src="<?= base_url() . 'resource/vue.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/common/common.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/person/person.js' ?>"></script>
-<script type="text/javascript" src="<?= base_url() . 'resource/course/course.js' ?>"></script>
 </html>

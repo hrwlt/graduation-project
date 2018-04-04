@@ -132,12 +132,8 @@ class Person extends CI_Controller {
                 'avatar' => $file_name,
             ];
             $this->session->set_tempdata($session_array, NULL, 86400);
-            redirect('/person/index/personavatar');
+            redirect('/home/index/personavatar/person/personavatar');
         }
-    }
-
-    public function upload() {
-        $this->load->view('upload');
     }
 
 }

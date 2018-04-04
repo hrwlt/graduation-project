@@ -7,6 +7,7 @@
                     <table id="question" class="table table-striped table-no-bordered table-hover">
                         <thead>
                         <tr>
+                            <th class="text-center">ID</th>
                             <th class="text-center">题库名称</th>
                             <th class="text-center">创建人</th>
                             <th class="text-center">知识点库</th>
@@ -18,6 +19,7 @@
                         <tbody>
                         <?php foreach ($question_list as $question) { ?>
                             <tr>
+                                <td class="text-center"><?php echo $question->id; ?></td>
                                 <td class="text-center"><?php echo $question->question_name; ?></td>
                                 <td class="text-center"><?php echo $question->creater; ?></td>
                                 <td class="text-center"><?php echo $question->knowledge_id; ?></td>

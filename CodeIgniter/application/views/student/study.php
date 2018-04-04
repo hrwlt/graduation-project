@@ -34,13 +34,13 @@
                     <div id="personsExamples" class="collapse">
                         <ul class="nav">
                             <li>
-                                <a href="/person/index/personedit">基本设置</a>
+                                <a href="/home/index/personedit/person/personedit">基本设置</a>
                             </li>
                             <li>
-                                <a href="/person/index/personavatar">头像设置</a>
+                                <a href="/home/index/personavatar/person/personavatar">头像设置</a>
                             </li>
                             <li>
-                                <a href="/person/index/personsafe">安全设置</a>
+                                <a href="/home/index/personsafe/person/personsafe">安全设置</a>
                             </li>
                         </ul>
                     </div>
@@ -54,7 +54,7 @@
                     <div id="questionsExamples" class="collapse">
                         <ul class="nav">
                             <li>
-                                <a href="/student/course/index">我的课程</a>
+                                <a href="/home/index/myCourse/myCourse/myCourse">我的课程</a>
                             </li>
                         </ul>
                     </div>
@@ -154,107 +154,113 @@
                                 </ul>
                                 <div class="tab-content">
                                     <div id="info" class="tab-pane active">
-                                        <p style="font-size: 15px;"><?php echo $course_instruction; ?></p>
-                                    </div>
-                                    <div id="message" class="tab-pane">
-                                        <p style="font-size: 15px;">暂无消息</p>
+                                        <div class="course_img"><img src="/resource/imgs/<?php echo $course_img; ?>"></div>
+                                        <p style=" font-size: 15px;"><?php echo $course_instruction; ?></p>
+                                        </div>
+                                        <div id="message" class="tab-pane">
+                                            <p style="font-size: 15px;">暂无消息</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="content">
-                                <div class="panel-group" id="accordion">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-target="#data" href="javascript:;" data-toggle="collapse">
-                                                    学习资料
-                                                    <b class="caret"></b>
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="data" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                <p style="font-size: 15px;">暂无内容</p>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="content">
+                                    <div class="panel-group" id="accordion">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-target="#data" href="javascript:;" data-toggle="collapse">
+                                                        学习资料
+                                                        <b class="caret"></b>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="data" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p style="font-size: 15px;">暂无内容</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-target="#work" href="javascript:;" data-toggle="collapse">
-                                                    我的作业
-                                                    <b class="caret"></b>
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="work" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                <p style="font-size: 15px;">暂无内容</p>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-target="#work" href="javascript:;" data-toggle="collapse">
+                                                        我的作业
+                                                        <b class="caret"></b>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="work" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p style="font-size: 15px;">暂无内容</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-target="#assessment" href="javascript:;" data-toggle="collapse">
-                                                    互评任务
-                                                    <b class="caret"></b>
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="assessment" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                <p style="font-size: 15px;">暂无内容</p>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-target="#assessment" href="javascript:;"
+                                                       data-toggle="collapse">
+                                                        互评任务
+                                                        <b class="caret"></b>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="assessment" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p style="font-size: 15px;">暂无内容</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-target="#experiment" href="javascript:;" data-toggle="collapse">
-                                                    我的实验
-                                                    <b class="caret"></b>
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="experiment" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                <p style="font-size: 15px;">暂无内容</p>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-target="#experiment" href="javascript:;"
+                                                       data-toggle="collapse">
+                                                        我的实验
+                                                        <b class="caret"></b>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="experiment" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p style="font-size: 15px;">暂无内容</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-target="#simulate" href="javascript:;" data-toggle="collapse">
-                                                    模拟练习
-                                                    <b class="caret"></b>
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="simulate" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                <p style="font-size: 15px;">暂无内容</p>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-target="#simulate" href="javascript:;"
+                                                       data-toggle="collapse">
+                                                        模拟练习
+                                                        <b class="caret"></b>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="simulate" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p style="font-size: 15px;">暂无内容</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-target="#discuss" href="javascript:;" data-toggle="collapse">
-                                                    讨论区
-                                                    <b class="caret"></b>
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="discuss" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                <p style="font-size: 15px;">暂无内容</p>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-target="#discuss" href="javascript:;"
+                                                       data-toggle="collapse">
+                                                        讨论区
+                                                        <b class="caret"></b>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="discuss" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p style="font-size: 15px;">暂无内容</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -264,14 +270,13 @@
                     </div>
                 </div>
             </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <p class="copyright pull-right">&copy;2018 HZNU DODO All Design By HR</p>
+                </div>
+            </footer>
         </div>
-        <footer class="footer">
-            <div class="container-fluid">
-                <p class="copyright pull-right">&copy;2018 HZNU DODO All Design By HR</p>
-            </div>
-        </footer>
     </div>
-</div>
 </body>
 <script type="text/javascript" src="<?= base_url() . 'resource/jquery-3.3.1.min.js' ?>"></script>
 <script type="text/javascript" src="<?= base_url() . 'resource/bootstrap/js/bootstrap.min.js' ?>"></script>
