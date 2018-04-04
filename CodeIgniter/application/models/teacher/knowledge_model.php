@@ -16,6 +16,7 @@ class Knowledge_model extends CI_Model {
             'knowledge_name' => $knowledge_name,
             'creater' => $creater,
             'is_show' => $is_show,
+            'knowledge_text' => '',
             'create_time' => time(),
             'update_time' => time(),
             'destory' => 0

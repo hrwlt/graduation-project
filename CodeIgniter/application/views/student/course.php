@@ -49,7 +49,7 @@
              aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form id="course_list" method="post" action="/student/course/chose_course">
+                    <form id="course_list" method="post" action="">
                         <div class="modal-header">
                             <label>请选择课程：</label>
                             <select name="course_id" style="height: 30px;" onchange="course_change(this)">

@@ -24,10 +24,13 @@
                                 <td class="text-center"><?php echo $knowledge->is_show ? '是' : '否'; ?></td>
                                 <td class="text-center"><?php echo date('Y-m-d', $knowledge->update_time); ?></td>
                                 <td class="text-center">
-                                    <a href="#" class="btn btn-simple btn-warning btn-icon edit"><i
-                                            class="fa fa-edit"></i></a>
-                                    <a href="#" class="btn btn-simple btn-danger btn-icon remove"><i
-                                            class="fa fa-times"></i></a>
+                                    <a data-toggle="modal" data-target="#knowledgelist<?php echo $knowledge->id; ?>"
+                                       class="btn btn-simple btn-warning btn-icon edit">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-simple btn-danger btn-icon remove">
+                                        <i class="fa fa-times"></i>
+                                    </a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -35,6 +38,29 @@
                     </table>
                 </div>
             </div>
+            <?php foreach ($knowledge_list as $knowledge) { ?>
+                <div class="modal fade" id="knowledgelist<?php echo $knowledge->id; ?>" tabindex="-1"
+                     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form id="knowledge_list_edit<?php echo $knowledge->id; ?>" method="post" action="">
+                                <div class="modal-header knowledge_header">
+                                    <?php echo $knowledge->knowledge_name; ?>
+                                </div>
+                                <div class="modal-body knowledge_text">
+                                    <textarea name="knowledge_text"><?php echo $knowledge->knowledge_text; ?></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary"
+                                            onclick="editknowledge(<?php echo $knowledge->id; ?>)">
+                                        确认修改并保存
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
     </div>
 </div>

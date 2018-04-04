@@ -131,11 +131,6 @@ function knowledge() {
                 }
             }
         });
-        table.on('click', '.edit', function () {
-            $tr = $(this).closest('tr');
-            var data = table.row($tr).data();
-            alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
-        });
         table.on('click', '.remove', function (e) {
             $tr = $(this).closest('tr');
             var data = table.row($tr).data();
@@ -371,5 +366,46 @@ function teach_exam() {
                 }
             }
         });
+    });
+}
+
+function editknowledge(id) {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "/teacher/knowledge/edit_knowledge_list",
+        data: "knowledge_id=" + id + "&" + $('#knowledge_list_edit' + id).serialize(),
+        success: function (data) {
+            if (data.success == true) {
+                swal({
+                    title: "修改成功！",
+                    type: "success",
+                    timer: 1000,
+                    showConfirmButton: false
+                }, function () {
+                    window.location.href = 'http://' + window.location.hostname + '/home/index/knowledge/question/knowledgelist';
+                });
+            } else {
+                swal({
+                    title: "修改失败！",
+                    text: data.message,
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
+            }
+        },
+        error: function () {
+            swal({
+                title: "修改异常，请稍后再试！",
+                type: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonClass: "btn btn-danger btn-fill",
+                cancelButtonText: "关闭"
+            });
+        }
     });
 }

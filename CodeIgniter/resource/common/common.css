@@ -19,7 +19,7 @@
     margin-bottom: 10px;
 }
 
-.course{
+.course {
     margin-left: 20px;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -37,4 +37,20 @@
 .course_img img {
     width: 100%;
     height: 100%;
+}
+
+.knowledge_header {
+    font-size: 15px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.knowledge_text textarea {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;;
+    width: 570px;
+    height: 600px;
+    padding: 10px 10px 10px 10px;
+    line-height: 25px;
 }

@@ -7,10 +7,10 @@ class Knowledge extends CI_Controller {
         $this->load->model('teacher/knowledge_model');
     }
 
-    public function delete_knowledge(){
+    public function delete_knowledge() {
         $knowledge_id = $this->input->post('knowledge_id');
         if (!$knowledge_id) {
-            $obj['message'] = '删除发生异常';
+            $obj['message'] = '知识点ID不存在！';
             $obj['success'] = FALSE;
             echo json_encode($obj);
             exit();
@@ -19,7 +19,28 @@ class Knowledge extends CI_Controller {
         $data = ['destory' => 1];
         $result = $this->knowledge_model->update($where, $data);
         if (!$result) {
-            $obj['message'] = '数据库删除失败';
+            $obj['message'] = '数据库操作失败！';
+            $obj['success'] = FALSE;
+            echo json_encode($obj);
+            exit();
+        }
+        $obj['success'] = TRUE;
+        echo json_encode($obj);
+        exit();
+    }
+
+    public function edit_knowledge_list() {
+        $knowledge_id = $this->input->post('knowledge_id');
+        $knowledge_text = $this->input->post('knowledge_text');
+        if (!$knowledge_id) {
+            $obj['success'] = FALSE;
+            $obj['message'] = "知识点ID不存在！";
+        }
+        $where = ['id' => $knowledge_id];
+        $data = ['knowledge_text' => $knowledge_text];
+        $result = $this->knowledge_model->update($where, $data);
+        if (!$result) {
+            $obj['message'] = '数据库操作失败！';
             $obj['success'] = FALSE;
             echo json_encode($obj);
             exit();
