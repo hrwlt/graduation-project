@@ -1,6 +1,7 @@
 <div class="row" v-else-if="seen==='courselist'">
     <div class="col-md-12">
         <div class="card">
+            <button type="button" class="btn btn-primary course">新建课程</button>
             <div class="content">
                 <div class="fresh-datatables">
                     <table id="course" class="table table-striped table-no-bordered table-hover">

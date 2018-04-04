@@ -17,7 +17,8 @@ class Knowledge_model extends CI_Model {
             'creater' => $creater,
             'is_show' => $is_show,
             'create_time' => time(),
-            'update_time' => time()
+            'update_time' => time(),
+            'destory' => 0
         );
         return $this->db->insert($this->get_table_name(), $data);
     }
@@ -27,7 +28,7 @@ class Knowledge_model extends CI_Model {
     }
 
     public function get_by_creater($creater) {
-        $sql = 'SELECT * FROM ' . $this->get_table_name() . ' WHERE creater = ?';
+        $sql = 'SELECT * FROM ' . $this->get_table_name() . ' WHERE creater = ? AND destory = 0';
         $query = $this->db->query($sql, array($creater));
         return $query->result();
     }

@@ -150,7 +150,6 @@ function knowledge() {
                     if (data.success == true) {
                         swal({
                             title: "删除成功！",
-                            text: data.knowledge_id,
                             type: "warning",
                             //type: "success",
                             //timer: 1000,
@@ -231,7 +230,6 @@ function question() {
                     if (data.success == true) {
                         swal({
                             title: "删除成功！",
-                            text : data.question_id,
                             type: "warning",
                             //type: "success",
                             //timer: 1000,
@@ -299,10 +297,51 @@ function course() {
             alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
         });
         table.on('click', '.remove', function (e) {
-            //数据库中这行删除
-
-            //列表中这行删除
             $tr = $(this).closest('tr');
+            var data = table.row($tr).data();
+            $course_id = data[0];
+            //数据库中这行删除
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "/teacher/course/delete_course",
+                data: "course_id=" + $course_id,
+                success: function (data) {
+                    if (data.success == true) {
+                        swal({
+                            title: "删除成功！",
+                            type: "warning",
+                            //type: "success",
+                            //timer: 1000,
+                            showCancelButton: true,
+                            showConfirmButton: false
+                        }, function () {
+                            window.location.href = 'http://' + window.location.hostname + '/home/index/question/question/knowledgelist';
+                        });
+                    } else {
+                        swal({
+                            title: "删除失败！",
+                            text: data.message,
+                            type: "warning",
+                            showConfirmButton: false,
+                            showCancelButton: true,
+                            cancelButtonClass: "btn btn-danger btn-fill",
+                            cancelButtonText: "关闭"
+                        });
+                    }
+                },
+                error: function () {
+                    swal({
+                        title: "删除异常，请稍后再试！",
+                        type: "warning",
+                        showConfirmButton: false,
+                        showCancelButton: true,
+                        cancelButtonClass: "btn btn-danger btn-fill",
+                        cancelButtonText: "关闭"
+                    });
+                }
+            });
+            //列表中这行删除
             table.row($tr).remove().draw();
             e.preventDefault();
         });
