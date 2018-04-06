@@ -14,6 +14,7 @@
                             <th class="text-center">状态</th>
                             <th class="text-center">更新时间</th>
                             <th class="disabled-sorting text-center">操作</th>
+                            <th class="text-center">发起考试</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -33,12 +34,51 @@
                                         <i class="fa fa-times"></i>
                                     </a>
                                 </td>
+                                <td class="text-center">
+                                    <?php if ($course->status == "进行中"){ ?>
+                                    <a href="#" class="btn btn-primary exam" data-toggle="modal"
+                                       data-target="#course<?php echo $course->id; ?>">
+                                        发起考试
+                                    </a>
+                                </td>
+                                <?php } ?>
                             </tr>
                         <?php } ?>
                         </tbody>
                     </table>
                 </div>
             </div>
+
+            <?php foreach ($course_list as $course) { ?>
+                <div class="modal fade" id="course<?php echo $course->id; ?>" tabindex="-1"
+                     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form id="startExam<?php echo $course->id; ?>" method="post" action="">
+                                <div class="modal-header">
+                                    <label>考试名称：</label><input type="text" name="exam_name">
+                                    <label>监考老师：</label><input type="text" name="exam_monitor_teacher">
+                                </div>
+                                <div class="modal-body">
+                                    <label>考试题库：</label>
+                                    <select name="exam_question_id">
+                                        <?php foreach ($question_list as $question) { ?>
+                                            <option value="<?php echo $question->id ?>"><?php echo $question->question_name ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <label>题目数量：</label><input type="text" name="exam_question_num">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" onclick="startExam(<?php echo $course->id; ?>)">
+                                        确认发起考试
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+
         </div>
     </div>
 </div>

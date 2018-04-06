@@ -35,4 +35,10 @@ class Question_model extends CI_Model {
         return $query->result();
     }
 
+    public function get_by_id($id) {
+        $sql = 'SELECT * FROM ' . $this->get_table_name() . ' WHERE id = ? AND destory = 0';
+        $query = $this->db->query($sql, array($id));
+        return $query->row();
+    }
+
 }

@@ -456,12 +456,54 @@ function editknowledge(id) {
 }
 
 // 添加知识点库
-function add_knowledge_list(){
+function add_knowledge_list() {
     $.ajax({
         type: "POST",
         dataType: "json",
         url: "/teacher/knowledge/add_knowledge_list",
         data: $('#add_knowledge_list').serialize(),
+        success: function (data) {
+            if (data.success == true) {
+                swal({
+                    title: "添加成功！",
+                    type: "success",
+                    timer: 1000,
+                    showConfirmButton: false
+                }, function () {
+                    window.location.href = 'http://' + window.location.hostname + '/home/index/knowledge/question/knowledgelist';
+                });
+            } else {
+                swal({
+                    title: "添加失败！",
+                    text: data.message,
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
+            }
+        },
+        error: function () {
+            swal({
+                title: "添加异常，请稍后再试！",
+                type: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonClass: "btn btn-danger btn-fill",
+                cancelButtonText: "关闭"
+            });
+        }
+    });
+}
+
+// 发起考试
+function startExam(id) {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "/teacher/exam/startExam",
+        data: "course_id=" + id + "&" + $('#startExam' + id).serialize(),
         success: function (data) {
             if (data.success == true) {
                 swal({

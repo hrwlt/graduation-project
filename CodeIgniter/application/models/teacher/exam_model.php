@@ -11,11 +11,14 @@ class Exam_model extends CI_Model {
         return 'exam';
     }
 
-    public function add($exam_name, $creater, $status) {
+    public function add($exam_name, $course_id, $creater, $monitor_teacher, $exam_question) {
         $data = array(
             'exam_name' => $exam_name,
+            'course_id' => $course_id,
             'creater' => $creater,
-            'status' => $status,
+            'monitor_teacher' => $monitor_teacher,
+            'status' => '正在进行中',
+            'exam_question' => $exam_question,
             'create_time' => time(),
             'update_time' => time()
         );
