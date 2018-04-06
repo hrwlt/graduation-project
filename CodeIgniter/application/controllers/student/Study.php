@@ -12,7 +12,7 @@ class Study extends CI_Controller {
         $data['avatar'] = empty($this->session->avatar) ? '/resource/imgs/default_avatar.png' : '/resource/imgs/' . $this->session->avatar;
         $course_list = $this->course_model->get_by_id($id);
         $data['course_name'] = $course_list->course_name;
-        $data['course_img'] = $course_list->course_img;
+        $data['course_teacher'] = $course_list->teacher;
         $data['course_instruction'] = $course_list->course_instruction;
         $this->load->view('student/study', $data);
     }

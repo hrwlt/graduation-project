@@ -1,7 +1,7 @@
-<div class="row" v-else-if="seen==='courselist'">
+<div class="row" v-else-if="seen==='courselist'" xmlns="http://www.w3.org/1999/html">
     <div class="col-md-12">
         <div class="card">
-            <button type="button" class="btn btn-primary course">新建课程</button>
+            <button type="button" class="btn btn-primary course" data-toggle="modal" data-target="#addcourse">新建课程</button>
             <div class="content">
                 <div class="fresh-datatables">
                     <table id="course" class="table table-striped table-no-bordered table-hover">
@@ -27,17 +27,16 @@
                                 <td class="text-center"><?php echo $course->status; ?></td>
                                 <td class="text-center"><?php echo date('Y-m-d', $course->update_time); ?></td>
                                 <td class="text-center">
-                                    <a href="javescript:;" class="btn btn-simple btn-warning btn-icon edit">
+                                    <a href="#" class="btn btn-simple btn-warning btn-icon edit" data-toggle="modal" data-target="#editcourseinfo<?php echo $course->id; ?>">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <a href="javescript:;" class="btn btn-simple btn-danger btn-icon remove">
+                                    <a href="#" class="btn btn-simple btn-danger btn-icon remove">
                                         <i class="fa fa-times"></i>
                                     </a>
                                 </td>
                                 <td class="text-center">
                                     <?php if ($course->status == "进行中"){ ?>
-                                    <a href="#" class="btn btn-primary exam" data-toggle="modal"
-                                       data-target="#course<?php echo $course->id; ?>">
+                                    <a href="#" class="btn btn-primary exam" data-toggle="modal" data-target="#startexam<?php echo $course->id; ?>">
                                         发起考试
                                     </a>
                                 </td>
@@ -50,7 +49,7 @@
             </div>
 
             <?php foreach ($course_list as $course) { ?>
-                <div class="modal fade" id="course<?php echo $course->id; ?>" tabindex="-1"
+                <div class="modal fade" id="startexam<?php echo $course->id; ?>" tabindex="-1"
                      role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -77,8 +76,50 @@
                         </div>
                     </div>
                 </div>
+                <div class="modal fade" id="editcourseinfo<?php echo $course->id; ?>" tabindex="-1"
+                     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form id="editcourse<?php echo $course->id; ?>" method="post" action="">
+                                <div class="modal-header">
+                                    <label>课程名称：</label><input name="course_name" type="text" value="<?php echo $course->course_name; ?>" style="width: 300px;" readonly>
+                                </div>
+                                <div class="modal-body course_instruction">
+                                    <label>课程简介：</label>
+                                    <textarea name="course_instruction"><?php echo $course->course_instruction; ?></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" onclick="editcourse(<?php echo $course->id; ?>)">
+                                        确认修改并保存
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             <?php } ?>
 
+            <div class="modal fade" id="addcourse" tabindex="-1"
+                 role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form id="addcourseinfo" method="post" action="">
+                            <div class="modal-header">
+                                <label>课程名称：</label><input name="course_name" type="text" style="width: 300px;">
+                            </div>
+                            <div class="modal-body course_instruction">
+                                <label>课程简介：</label>
+                                <textarea name="course_instruction"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" onclick="addcourse()">
+                                    确认修改并保存
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

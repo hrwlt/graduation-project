@@ -61,6 +61,14 @@ class Exam extends CI_Controller {
             exit();
         }
 
+        $row = $this->exam_model->get_by_course_id($course_id);
+        if ($row) {
+            $obj['message'] = "该课程考试已经存在！";
+            $obj['success'] = FALSE;
+            echo json_encode($obj);
+            exit();
+        }
+
         $exam_question = [];
         $exam_question_keys = array_rand($question, $exam_question_num);
 

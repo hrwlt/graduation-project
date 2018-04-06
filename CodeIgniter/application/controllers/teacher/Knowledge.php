@@ -37,7 +37,10 @@ class Knowledge extends CI_Controller {
             $obj['message'] = "知识点ID不存在！";
         }
         $where = ['id' => $knowledge_id];
-        $data = ['knowledge_text' => $knowledge_text];
+        $data = [
+            'knowledge_text' => $knowledge_text,
+            'update_time' => time()
+        ];
         $result = $this->knowledge_model->update($where, $data);
         if (!$result) {
             $obj['message'] = '数据库操作失败！';

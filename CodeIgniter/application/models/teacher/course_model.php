@@ -11,11 +11,13 @@ class Course_model extends CI_Model {
         return 'course';
     }
 
-    public function add($teacher, $student_num, $status) {
+    public function add($teacher, $course_name, $course_instruction) {
         $data = array(
             'teacher' => $teacher,
-            'student_num' => $student_num,
-            'status' => $status,
+            'course_name' => $course_name,
+            'course_instruction' => $course_instruction,
+            'student_num' => 0,
+            'status' => "进行中",
             'destory' => 0,
             'create_time' => time(),
             'update_time' => time()

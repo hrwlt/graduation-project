@@ -106,8 +106,9 @@ function chose() {
     });
 }
 
+
 /* 教师端 */
-// 知识点库删除
+// 知识点库
 function knowledge() {
     $(document).ready(function () {
         var table = $('#knowledge').DataTable({
@@ -131,10 +132,10 @@ function knowledge() {
                 }
             }
         });
+        // 知识点库删除
         table.on('click', '.remove', function (e) {
             $tr = $(this).closest('tr');
             var data = table.row($tr).data();
-            //数据库中这行删除
             $knowledge_id = data[0];
             $.ajax({
                 type: "POST",
@@ -174,14 +175,13 @@ function knowledge() {
                     });
                 }
             });
-            //列表中这行删除
             table.row($tr).remove().draw();
             e.preventDefault();
         });
     });
 }
 
-// 题库删除
+// 题库
 function question() {
     $(document).ready(function () {
         var table = $('#question').DataTable({
@@ -210,11 +210,11 @@ function question() {
             var data = table.row($tr).data();
             alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
         });
+        // 题库删除
         table.on('click', '.remove', function (e) {
             $tr = $(this).closest('tr');
             var data = table.row($tr).data();
             $question_id = data[0];
-            //数据库中这行删除
             $.ajax({
                 type: "POST",
                 dataType: "json",
@@ -253,14 +253,13 @@ function question() {
                     });
                 }
             });
-            //列表中这行删除
             table.row($tr).remove().draw();
             e.preventDefault();
         });
     });
 }
 
-// 课程删除
+// 课程
 function course() {
     $(document).ready(function () {
         var table = $('#course').DataTable({
@@ -284,16 +283,11 @@ function course() {
                 }
             }
         });
-        table.on('click', '.edit', function () {
-            $tr = $(this).closest('tr');
-            var data = table.row($tr).data();
-            alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
-        });
+        // 课程删除
         table.on('click', '.remove', function (e) {
             $tr = $(this).closest('tr');
             var data = table.row($tr).data();
             $course_id = data[0];
-            //数据库中这行删除
             $.ajax({
                 type: "POST",
                 dataType: "json",
@@ -332,7 +326,6 @@ function course() {
                     });
                 }
             });
-            //列表中这行删除
             table.row($tr).remove().draw();
             e.preventDefault();
         });
@@ -529,6 +522,90 @@ function startExam(id) {
         error: function () {
             swal({
                 title: "添加异常，请稍后再试！",
+                type: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonClass: "btn btn-danger btn-fill",
+                cancelButtonText: "关闭"
+            });
+        }
+    });
+}
+
+// 修改课程信息
+function editcourse(id) {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "/teacher/course/edit_course",
+        data: "course_id=" + id + "&" + $('#editcourse' + id).serialize(),
+        success: function (data) {
+            if (data.success == true) {
+                swal({
+                    title: "修改成功！",
+                    type: "success",
+                    timer: 1000,
+                    showConfirmButton: false
+                }, function () {
+                    window.location.href = 'http://' + window.location.hostname + '/home/index/course/course/courselist';
+                });
+            } else {
+                swal({
+                    title: "修改失败！",
+                    text: data.message,
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
+            }
+        },
+        error: function () {
+            swal({
+                title: "修改异常，请稍后再试！",
+                type: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonClass: "btn btn-danger btn-fill",
+                cancelButtonText: "关闭"
+            });
+        }
+    });
+}
+
+// 新增课程
+function addcourse() {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "/teacher/course/add_course",
+        data: $('#addcourseinfo').serialize(),
+        success: function (data) {
+            if (data.success == true) {
+                swal({
+                    title: "新增成功！",
+                    type: "success",
+                    timer: 1000,
+                    showConfirmButton: false
+                }, function () {
+                    window.location.href = 'http://' + window.location.hostname + '/home/index/course/course/courselist';
+                });
+            } else {
+                swal({
+                    title: "新增失败！",
+                    text: data.message,
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
+            }
+        },
+        error: function () {
+            swal({
+                title: "新增异常，请稍后再试！",
                 type: "warning",
                 showConfirmButton: false,
                 showCancelButton: true,

@@ -6,10 +6,9 @@
                 <table class="table table-bigboy">
                     <thead>
                     <tr>
-                        <th class="text-center" width="133px">封面</th>
-                        <th class="text-center" width="155px">课程名</th>
-                        <th class="text-center" width="344px">课程简介</th>
-                        <th class="text-center" width="88px">状态</th>
+                        <th class="text-center">课程名</th>
+                        <th class="text-center" width="444px">课程简介</th>
+                        <th class="text-center">状态</th>
                         <th class="text-center">更多</th>
                         <th></th>
                     </tr>
@@ -17,11 +16,6 @@
                     <tbody>
                     <?php foreach ($student_course_lists as $student_course_list) { ?>
                         <tr>
-                            <td>
-                                <div class="img-container">
-                                    <img src="/resource/imgs/<?php echo $student_course_list->course_img; ?>">
-                                </div>
-                            </td>
                             <td class="text-center">
                                 <?php echo $student_course_list->course_name; ?>
                             </td>
@@ -65,26 +59,23 @@
                             <table class="table table-bigboy">
                                 <thead>
                                 <tr>
-                                    <th class="text-center" width="111px">封面</th>
                                     <th class="text-center" width="333px">课程简介</th>
                                     <th class="text-center">任课老师</th>
+                                    <th class="text-center">课程状态</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php foreach ($course_lists as $course_list) { ?>
-                                    <tr class="course_list" id="div<?php echo $course_list->id; ?>"
-                                        style="display: none;">
-                                        <td>
-                                            <div class="img-container">
-                                                <img src="/resource/imgs/<?php echo $course_list->course_img; ?>">
-                                            </div>
-                                        </td>
+                                    <tr class="course_list" id="div<?php echo $course_list->id; ?>" style="display: none;">
                                         <td class="text-center">
                                             <?php echo $course_list->course_instruction; ?>
                                         </td>
                                         <td class="text-center">
                                             <?php echo $course_list->teacher; ?>
+                                        </td>
+                                        <td class="text-center">
+                                            <?php echo $course_list->status; ?>
                                         </td>
                                     </tr>
                                 <? } ?>

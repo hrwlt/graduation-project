@@ -53,8 +53,7 @@
                                     <textarea name="knowledge_text"><?php echo $knowledge->knowledge_text; ?></textarea>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary"
-                                            onclick="editknowledge(<?php echo $knowledge->id; ?>)">
+                                    <button type="button" class="btn btn-primary" onclick="editknowledge(<?php echo $knowledge->id; ?>)">
                                         确认修改并保存
                                     </button>
                                 </div>
