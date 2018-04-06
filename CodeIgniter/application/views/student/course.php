@@ -29,9 +29,9 @@
                                 <?php echo $student_course_list->course_instruction; ?>
                             </td>
                             <td class="text-center">
-                                <?php echo $student_course_list->course_status; ?>
+                                <?php echo $student_course_list->status; ?>
                             </td>
-                            <?php if ($student_course_list->course_status === '进行中') { ?>
+                            <?php if ($student_course_list->status === '进行中') { ?>
                                 <td class="text-center">
                                     <a type="button" class="btn btn-primary"
                                        href="/student/study/index/<?php echo $student_course_list->id; ?>">立即学习</a>

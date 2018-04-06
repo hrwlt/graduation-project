@@ -155,6 +155,8 @@
 
                 <?php $this->load->view('student/course') ?>
 
+                <?php $this->load->view('student/exam') ?>
+
             </div>
         </div>
         <footer class="footer">

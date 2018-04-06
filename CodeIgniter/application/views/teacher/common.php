@@ -95,7 +95,7 @@
                     <div id="examinationExamples"
                          :class="operate==='exam'?'collapse in':'collapse'">
                         <ul class="nav">
-                            <li :class="{active:seen==='exam'}">
+                            <li :class="{active:seen==='examlist'}">
                                 <a href="javascript:;" @click="exam" onclick="teach_exam()">考试列表</a>
                             </li>
                         </ul>

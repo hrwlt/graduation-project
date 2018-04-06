@@ -2,18 +2,7 @@
 
 class Home extends CI_Controller {
 
-    private static $ARRAY_TITLE = array(
-        "home" => "首页",
-        "personedit" => "个人中心-基本设置",
-        "personavatar" => "个人中心-头像设置",
-        "personsafe" => "个人中心-安全设置",
-        "question" => "我的试题库",
-        "knowledge" => "我的知识点库",
-        "course" => "我的课程",
-        "exam" => "考试列表",
-        "myCourse" => "我的课程",
-        "myExam" => "我的考试"
-    );
+    private static $ARRAY_TITLE = array("home" => "首页", "personedit" => "个人中心-基本设置", "personavatar" => "个人中心-头像设置", "personsafe" => "个人中心-安全设置", "question" => "我的试题库", "knowledge" => "我的知识点库", "course" => "我的课程", "exam" => "考试列表", "myCourse" => "我的课程", "myExam" => "我的考试");
 
     public function __construct() {
         parent::__construct();
@@ -46,19 +35,21 @@ class Home extends CI_Controller {
         } else if ($this->session->identity === '1') {
             //获取学生用户对应的课程及信息
             $course_list = [];
+            $exam_list = [];
             $course_ids = $this->student_course_model->get_by_username($this->session->username);
             foreach ($course_ids as $course_id) {
                 $student_course_id = $course_id->course_id;
                 $course_info = $this->course_model->get_by_id($student_course_id);
-                $tmp = $course_info;
-                if ($course_info->destory == 1) {
-                    $tmp->course_status = '已关闭';
-                } else {
-                    $tmp->course_status = $course_info->status;
+                $course_list[] = $course_info;
+                //获取学生对应的考试信息
+                $exam_info = $this->exam_model->get_by_course_id($student_course_id);
+                if ($exam_info && $course_info->status == "进行中") {
+                    $exam_info->exam_question = json_decode($exam_info->exam_question, TRUE);
+                    $exam_list[] = $exam_info;
                 }
-                $course_list[] = $tmp;
             }
             $data['student_course_lists'] = $course_list;
+            $data['student_exam_lists'] = $exam_list;
             $data['course_lists'] = $this->course_model->get_all();
             $this->load->view('student/common', $data);
         } else {

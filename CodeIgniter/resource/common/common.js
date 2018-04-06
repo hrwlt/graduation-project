@@ -42,7 +42,7 @@ var vm = new Vue({
         exam: function () {
             this.title = '考试列表';
             this.operate = 'exam';
-            this.seen = 'exam';
+            this.seen = 'examlist';
         },
         myExam: function () {
             this.title = '我的考试';
@@ -106,8 +106,8 @@ function chose() {
     });
 }
 
-// 教师端
-
+/* 教师端 */
+// 知识点库删除
 function knowledge() {
     $(document).ready(function () {
         var table = $('#knowledge').DataTable({
@@ -145,10 +145,8 @@ function knowledge() {
                     if (data.success == true) {
                         swal({
                             title: "删除成功！",
-                            type: "warning",
-                            //type: "success",
-                            //timer: 1000,
-                            showCancelButton: true,
+                            type: "success",
+                            timer: 1000,
                             showConfirmButton: false
                         }, function () {
                             window.location.href = 'http://' + window.location.hostname + '/home/index/knowledge/question/knowledgelist';
@@ -183,6 +181,7 @@ function knowledge() {
     });
 }
 
+// 题库删除
 function question() {
     $(document).ready(function () {
         var table = $('#question').DataTable({
@@ -225,13 +224,11 @@ function question() {
                     if (data.success == true) {
                         swal({
                             title: "删除成功！",
-                            type: "warning",
-                            //type: "success",
-                            //timer: 1000,
-                            showCancelButton: true,
+                            type: "success",
+                            timer: 1000,
                             showConfirmButton: false
                         }, function () {
-                            window.location.href = 'http://' + window.location.hostname + '/home/index/question/question/knowledgelist';
+                            window.location.href = 'http://' + window.location.hostname + '/home/index/question/question/questionlist';
                         });
                     } else {
                         swal({
@@ -263,6 +260,7 @@ function question() {
     });
 }
 
+// 课程删除
 function course() {
     $(document).ready(function () {
         var table = $('#course').DataTable({
@@ -305,13 +303,11 @@ function course() {
                     if (data.success == true) {
                         swal({
                             title: "删除成功！",
-                            type: "warning",
-                            //type: "success",
-                            //timer: 1000,
-                            showCancelButton: true,
+                            type: "success",
+                            timer: 1000,
                             showConfirmButton: false
                         }, function () {
-                            window.location.href = 'http://' + window.location.hostname + '/home/index/question/question/knowledgelist';
+                            window.location.href = 'http://' + window.location.hostname + '/home/index/course/course/courselist';
                         });
                     } else {
                         swal({
@@ -343,6 +339,7 @@ function course() {
     });
 }
 
+// 考试结束
 function teach_exam() {
     $(document).ready(function () {
         var table = $('#exam').DataTable({
@@ -366,9 +363,57 @@ function teach_exam() {
                 }
             }
         });
+        table.on('click', '.remove', function (e) {
+            $tr = $(this).closest('tr');
+            var data = table.row($tr).data();
+            $exam_id = data[0];
+            //数据库中这行删除
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "/teacher/exam/end_exam",
+                data: "exam_id=" + $exam_id,
+                success: function (data) {
+                    if (data.success == true) {
+                        swal({
+                            title: "结束考试成功！",
+                            type: "success",
+                            timer: 1000,
+                            showConfirmButton: false
+                        }, function () {
+                            window.location.href = 'http://' + window.location.hostname + '/home/index/exam/exam/examlist';
+                        });
+                    } else {
+                        swal({
+                            title: "结束考试失败！",
+                            text: data.message,
+                            type: "warning",
+                            showConfirmButton: false,
+                            showCancelButton: true,
+                            cancelButtonClass: "btn btn-danger btn-fill",
+                            cancelButtonText: "关闭"
+                        });
+                    }
+                },
+                error: function () {
+                    swal({
+                        title: "结束考试异常，请稍后再试！",
+                        type: "warning",
+                        showConfirmButton: false,
+                        showCancelButton: true,
+                        cancelButtonClass: "btn btn-danger btn-fill",
+                        cancelButtonText: "关闭"
+                    });
+                }
+            });
+            //列表中这行删除
+            table.row($tr).remove().draw();
+            e.preventDefault();
+        });
     });
 }
 
+// 修改某个知识点库
 function editknowledge(id) {
     $.ajax({
         type: "POST",
@@ -400,6 +445,48 @@ function editknowledge(id) {
         error: function () {
             swal({
                 title: "修改异常，请稍后再试！",
+                type: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonClass: "btn btn-danger btn-fill",
+                cancelButtonText: "关闭"
+            });
+        }
+    });
+}
+
+// 添加知识点库
+function add_knowledge_list(){
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "/teacher/knowledge/add_knowledge_list",
+        data: $('#add_knowledge_list').serialize(),
+        success: function (data) {
+            if (data.success == true) {
+                swal({
+                    title: "添加成功！",
+                    type: "success",
+                    timer: 1000,
+                    showConfirmButton: false
+                }, function () {
+                    window.location.href = 'http://' + window.location.hostname + '/home/index/knowledge/question/knowledgelist';
+                });
+            } else {
+                swal({
+                    title: "添加失败！",
+                    text: data.message,
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
+            }
+        },
+        error: function () {
+            swal({
+                title: "添加异常，请稍后再试！",
                 type: "warning",
                 showConfirmButton: false,
                 showCancelButton: true,

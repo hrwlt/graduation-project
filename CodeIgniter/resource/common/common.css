@@ -54,3 +54,17 @@
     padding: 10px 10px 10px 10px;
     line-height: 25px;
 }
+
+.add_knowledge {
+    margin-top: 10px;
+}
+
+.add_knowledge input[type="radio"] {
+    margin-left: 5px;
+    margin-right: 2px;
+}
+
+.add_knowledge textarea {
+    width: 500px;
+    height: 300px;
+}

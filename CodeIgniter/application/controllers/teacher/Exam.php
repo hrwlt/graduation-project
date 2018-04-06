@@ -1,26 +1,23 @@
 <?php
 
-class Course extends CI_Controller {
+class Exam extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('teacher/course_model');
+        $this->load->model('teacher/exam_model');
     }
 
-    public function delete_course(){
-        $course_id = $this->input->post('course_id');
-        if (!$course_id) {
-            $obj['message'] = '删除发生异常';
+    public function end_exam(){
+        $exam_id = $this->input->post('exam_id');
+        if (!$exam_id) {
+            $obj['message'] = '考试ID不存在！';
             $obj['success'] = FALSE;
             echo json_encode($obj);
             exit();
         }
-        $where = ['id' => $course_id];
-        $data = [
-            'destory' => 1,
-            'status' => "已归档"
-        ];
-        $result = $this->course_model->update($where, $data);
+        $where = ['id' => $exam_id];
+        $data = ['status' => "已结束"];
+        $result = $this->exam_model->update($where, $data);
         if (!$result) {
             $obj['message'] = '数据库删除失败';
             $obj['success'] = FALSE;

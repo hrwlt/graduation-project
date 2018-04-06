@@ -1,7 +1,9 @@
 <div class="row" v-else-if="seen==='knowledgelist'">
     <div class="col-md-12">
         <div class="card">
-            <button type="button" class="btn btn-primary knowledge">新建知识点</button>
+            <button type="button" class="btn btn-primary knowledge" data-toggle="modal"
+                    data-target="#addnewknowledgelist">新建知识点
+            </button>
             <div class="content">
                 <div class="fresh-datatables">
                     <table id="knowledge" class="table table-striped table-no-bordered table-hover">
@@ -61,6 +63,35 @@
                     </div>
                 </div>
             <?php } ?>
+            <div class="modal fade" id="addnewknowledgelist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form id="add_knowledge_list" method="post" action="">
+                            <div class="modal-body">
+                                <div class="add_knowledge">
+                                    <label>知识点名称：</label>
+                                    <input type="text" name="knowledge_title">
+                                </div>
+                                <div class="add_knowledge">
+                                    <label>是否给学生展示：</label>
+                                    <input type="radio" name="knowledge_show" value="1" checked>是
+                                    <input type="radio" name="knowledge_show" value="0">否
+                                </div>
+                                <div class="add_knowledge">
+                                    <label>知识点内容：</label>
+                                    <textarea name="knowledge_text"></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" onclick="add_knowledge_list()">
+                                    确认修改并保存
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

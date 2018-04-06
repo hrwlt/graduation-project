@@ -11,12 +11,12 @@ class Knowledge_model extends CI_Model {
         return 'knowledge';
     }
 
-    public function add($knowledge_name, $creater, $is_show) {
+    public function add($knowledge_name, $creater, $is_show, $knowledge_text) {
         $data = array(
             'knowledge_name' => $knowledge_name,
             'creater' => $creater,
             'is_show' => $is_show,
-            'knowledge_text' => '',
+            'knowledge_text' => $knowledge_text,
             'create_time' => time(),
             'update_time' => time(),
             'destory' => 0

@@ -1,4 +1,4 @@
-<div class="row" v-else-if="seen==='exam'">
+<div class="row" v-else-if="seen==='examlist'">
     <div class="col-md-12">
         <div class="card">
             <div class="content">
@@ -34,7 +34,7 @@
                                 </td>
                                 <?php if ($exam_list->creater == $this->session->username && $exam_list->status == "正在进行中") { ?>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-danger">结束考试</button>
+                                        <a href="#" type="button" class="btn btn-danger remove">结束考试</a>
                                     </td>
                                 <?php } else { ?>
                                     <td></td>

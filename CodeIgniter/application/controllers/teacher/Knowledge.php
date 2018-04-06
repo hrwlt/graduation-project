@@ -50,4 +50,31 @@ class Knowledge extends CI_Controller {
         exit();
     }
 
+    public function add_knowledge_list() {
+        $knowledge_title = $this->input->post('knowledge_title');
+        $knowledge_show = $this->input->post('knowledge_show');
+        $knowledge_text = $this->input->post('knowledge_text');
+        $creater = $this->session->username;
+
+        if (!$knowledge_title) {
+            $obj['success'] = FALSE;
+            $obj['message'] = "知识点名称不能为空！";
+            echo json_encode($obj);
+            exit();
+        }
+
+        $result = $this->knowledge_model->add($knowledge_title, $creater, $knowledge_show, $knowledge_text);
+        if (!$result) {
+            $obj['success'] = FALSE;
+            $obj['message'] = "数据添加失败！";
+            echo json_encode($obj);
+            exit();
+        }
+
+        $obj['success'] = TRUE;
+        echo json_encode($obj);
+        exit();
+
+    }
+
 }

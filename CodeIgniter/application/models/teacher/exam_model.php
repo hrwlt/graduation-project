@@ -32,4 +32,10 @@ class Exam_model extends CI_Model {
         return $query->result();
     }
 
+    public function get_by_course_id($course_id) {
+        $sql = 'SELECT * FROM ' . $this->get_table_name() . ' WHERE course_id = ? AND status = ?';
+        $query = $this->db->query($sql, array($course_id, "正在进行中"));
+        return $query->row();
+    }
+
 }
