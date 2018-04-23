@@ -9,6 +9,11 @@ var vm = new Vue({
         title: title
     },
     methods: {
+        home: function () {
+            this.title = '首页';
+            this.operate = 'home';
+            this.seen = 'home';
+        },
         edit: function () {
             this.title = '个人中心 - 基本设置';
             this.operate = 'person';
@@ -57,6 +62,447 @@ var vm = new Vue({
     }
 });
 
+// 具体题目表格
+$(document).ready(function () {
+    var table = $('#question_list').DataTable({
+        "pagingType": "full_numbers",
+        "lengthMenu": [[10, 25, -1], [10, 25, "全部"]],
+        "bRetrieve": "true",
+        language: {
+            search: "_INPUT_",
+            searchPlaceholder: "关键字查询",
+            sEmptyTable: "你还没有新建题目",
+            sZeroRecords: "没有匹配结果",
+            sInfo: "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            sInfoEmpty: "显示第 0 至 0 项结果，共 0 项",
+            sInfoFiltered: "(由 _MAX_ 项结果过滤)",
+            sLengthMenu: "显示 _MENU_ 项结果",
+            oPaginate: {
+                sFirst: "首页",
+                sPrevious: "上页",
+                sNext: "下页",
+                sLast: "末页"
+            }
+        }
+    });
+    // 题库删除
+    table.on('click', '.remove', function (e) {
+        $tr = $(this).closest('tr');
+        var data = table.row($tr).data();
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "/teacher/question/delete_question_list",
+            data: "question_id=" + data[0] + "&question_list_id=" + data[1],
+            success: function (result) {
+                if (result.success == true) {
+                    swal({
+                        title: "删除成功！",
+                        type: "success",
+                        timer: 1000,
+                        showConfirmButton: false
+                    }, function () {
+                        window.location.href = 'http://' + window.location.hostname + '/teacher/question/question_list/' + data[0];
+                    });
+                } else {
+                    swal({
+                        title: "删除失败！",
+                        text: result.message,
+                        type: "warning",
+                        showConfirmButton: false,
+                        showCancelButton: true,
+                        cancelButtonClass: "btn btn-danger btn-fill",
+                        cancelButtonText: "关闭"
+                    });
+                }
+            },
+            error: function () {
+                swal({
+                    title: "删除异常，请稍后再试！",
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
+            }
+        });
+    });
+});
+
+function edit_question_list(question_id, question_list_id) {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "/teacher/question/edit_question_list",
+        data: $('#question_list_eidt' + question_list_id).serialize(),
+        success: function (data) {
+            if (data.success == true) {
+                swal({
+                    title: "修改成功！",
+                    type: "success",
+                    timer: 1000,
+                    showConfirmButton: false
+                }, function () {
+                    window.location.href = 'http://' + window.location.hostname + '/teacher/question/question_list/' + question_id;
+                });
+            } else {
+                swal({
+                    title: "修改失败！",
+                    text: data.message,
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
+            }
+        },
+        error: function () {
+            swal({
+                title: "修改异常，请稍后再试！",
+                type: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonClass: "btn btn-danger btn-fill",
+                cancelButtonText: "关闭"
+            });
+        }
+    });
+}
+
+// 新插入题目
+function question_add(question_id) {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "/teacher/question/question_add",
+        data: "question_id=" + question_id + "&" + $('#question_add').serialize(),
+        success: function (data) {
+            if (data.success == true) {
+                swal({
+                    title: "添加成功！",
+                    type: "success",
+                    timer: 1000,
+                    showConfirmButton: false
+                }, function () {
+                    window.location.href = 'http://' + window.location.hostname + '/teacher/question/question_list/' + question_id;
+                });
+            } else {
+                swal({
+                    title: "添加失败！",
+                    text: data.message,
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
+            }
+        },
+        error: function () {
+            swal({
+                title: "添加异常，请稍后再试！",
+                type: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonClass: "btn btn-danger btn-fill",
+                cancelButtonText: "关闭"
+            });
+        }
+    });
+}
+
+// 题库表格
+$(document).ready(function () {
+    var table = $('#question').DataTable({
+        "pagingType": "full_numbers",
+        "lengthMenu": [[10, 25, -1], [10, 25, "全部"]],
+        "bRetrieve": "true",
+        language: {
+            search: "_INPUT_",
+            searchPlaceholder: "关键字查询",
+            sEmptyTable: "你还没有新建知识点",
+            sZeroRecords: "没有匹配结果",
+            sInfo: "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            sInfoEmpty: "显示第 0 至 0 项结果，共 0 项",
+            sInfoFiltered: "(由 _MAX_ 项结果过滤)",
+            sLengthMenu: "显示 _MENU_ 项结果",
+            oPaginate: {
+                sFirst: "首页",
+                sPrevious: "上页",
+                sNext: "下页",
+                sLast: "末页"
+            }
+        }
+    });
+    table.on('click', '.edit', function () {
+        $tr = $(this).closest('tr');
+        var data = table.row($tr).data();
+        window.location.href = 'http://' + window.location.hostname + '/teacher/question/question_list/' + data[0];
+    });
+    // 题库删除
+    table.on('click', '.remove', function (e) {
+        $tr = $(this).closest('tr');
+        var data = table.row($tr).data();
+        $question_id = data[0];
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "/teacher/question/delete_question",
+            data: "question_id=" + $question_id,
+            success: function (data) {
+                if (data.success == true) {
+                    swal({
+                        title: "删除成功！",
+                        type: "success",
+                        timer: 1000,
+                        showConfirmButton: false
+                    }, function () {
+                        window.location.href = 'http://' + window.location.hostname + '/home/index/question/question/questionlist';
+                    });
+                } else {
+                    swal({
+                        title: "删除失败！",
+                        text: data.message,
+                        type: "warning",
+                        showConfirmButton: false,
+                        showCancelButton: true,
+                        cancelButtonClass: "btn btn-danger btn-fill",
+                        cancelButtonText: "关闭"
+                    });
+                }
+            },
+            error: function () {
+                swal({
+                    title: "删除异常，请稍后再试！",
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
+            }
+        });
+        table.row($tr).remove().draw();
+        e.preventDefault();
+    });
+});
+
+// 知识点库表格
+$(document).ready(function () {
+    var table = $('#knowledge').DataTable({
+        "pagingType": "full_numbers",
+        "lengthMenu": [[10, 25, -1], [10, 25, "全部"]],
+        "bRetrieve": "true",
+        language: {
+            search: "_INPUT_",
+            searchPlaceholder: "关键字查询",
+            sEmptyTable: "你还没有新建知识点",
+            sZeroRecords: "没有匹配结果",
+            sInfo: "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            sInfoEmpty: "显示第 0 至 0 项结果，共 0 项",
+            sInfoFiltered: "(由 _MAX_ 项结果过滤)",
+            sLengthMenu: "显示 _MENU_ 项结果",
+            oPaginate: {
+                sFirst: "首页",
+                sPrevious: "上页",
+                sNext: "下页",
+                sLast: "末页"
+            }
+        }
+    });
+    // 知识点库删除
+    table.on('click', '.remove', function (e) {
+        $tr = $(this).closest('tr');
+        var data = table.row($tr).data();
+        $knowledge_id = data[0];
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "/teacher/knowledge/delete_knowledge",
+            data: "knowledge_id=" + $knowledge_id,
+            success: function (data) {
+                if (data.success == true) {
+                    swal({
+                        title: "删除成功！",
+                        type: "success",
+                        timer: 1000,
+                        showConfirmButton: false
+                    }, function () {
+                        window.location.href = 'http://' + window.location.hostname + '/home/index/knowledge/question/knowledgelist';
+                    });
+                } else {
+                    swal({
+                        title: "删除失败！",
+                        text: data.message,
+                        type: "warning",
+                        showConfirmButton: false,
+                        showCancelButton: true,
+                        cancelButtonClass: "btn btn-danger btn-fill",
+                        cancelButtonText: "关闭"
+                    });
+                }
+            },
+            error: function () {
+                swal({
+                    title: "删除异常，请稍后再试！",
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
+            }
+        });
+        table.row($tr).remove().draw();
+        e.preventDefault();
+    });
+});
+
+// 课程表格
+$(document).ready(function () {
+    var table = $('#course').DataTable({
+        "pagingType": "full_numbers",
+        "lengthMenu": [[10, 25, -1], [10, 25, "全部"]],
+        "bRetrieve": "true",
+        language: {
+            search: "_INPUT_",
+            searchPlaceholder: "关键字查询",
+            sEmptyTable: "你还没有新建课程",
+            sZeroRecords: "没有匹配结果",
+            sInfo: "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            sInfoEmpty: "显示第 0 至 0 项结果，共 0 项",
+            sInfoFiltered: "(由 _MAX_ 项结果过滤)",
+            sLengthMenu: "显示 _MENU_ 项结果",
+            oPaginate: {
+                sFirst: "首页",
+                sPrevious: "上页",
+                sNext: "下页",
+                sLast: "末页"
+            }
+        }
+    });
+    // 课程删除
+    table.on('click', '.remove', function (e) {
+        $tr = $(this).closest('tr');
+        var data = table.row($tr).data();
+        $course_id = data[0];
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "/teacher/course/delete_course",
+            data: "course_id=" + $course_id,
+            success: function (data) {
+                if (data.success == true) {
+                    swal({
+                        title: "删除成功！",
+                        type: "success",
+                        timer: 1000,
+                        showConfirmButton: false
+                    }, function () {
+                        window.location.href = 'http://' + window.location.hostname + '/home/index/course/course/courselist';
+                    });
+                } else {
+                    swal({
+                        title: "删除失败！",
+                        text: data.message,
+                        type: "warning",
+                        showConfirmButton: false,
+                        showCancelButton: true,
+                        cancelButtonClass: "btn btn-danger btn-fill",
+                        cancelButtonText: "关闭"
+                    });
+                }
+            },
+            error: function () {
+                swal({
+                    title: "删除异常，请稍后再试！",
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
+            }
+        });
+        table.row($tr).remove().draw();
+        e.preventDefault();
+    });
+});
+
+// 考试结束表格
+$(document).ready(function () {
+    var table = $('#exam').DataTable({
+        "pagingType": "full_numbers",
+        "lengthMenu": [[10, 25, -1], [10, 25, "全部"]],
+        "bRetrieve": "true",
+        language: {
+            search: "_INPUT_",
+            searchPlaceholder: "关键字查询",
+            sEmptyTable: "你还没有新建知识点",
+            sZeroRecords: "没有匹配结果",
+            sInfo: "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            sInfoEmpty: "显示第 0 至 0 项结果，共 0 项",
+            sInfoFiltered: "(由 _MAX_ 项结果过滤)",
+            sLengthMenu: "显示 _MENU_ 项结果",
+            oPaginate: {
+                sFirst: "首页",
+                sPrevious: "上页",
+                sNext: "下页",
+                sLast: "末页"
+            }
+        }
+    });
+    table.on('click', '.remove', function (e) {
+        $tr = $(this).closest('tr');
+        var data = table.row($tr).data();
+        $exam_id = data[0];
+        //数据库中这行删除
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "/teacher/exam/end_exam",
+            data: "exam_id=" + $exam_id,
+            success: function (data) {
+                if (data.success == true) {
+                    swal({
+                        title: "结束考试成功！",
+                        type: "success",
+                        timer: 1000,
+                        showConfirmButton: false
+                    }, function () {
+                        window.location.href = 'http://' + window.location.hostname + '/home/index/exam/exam/examlist';
+                    });
+                } else {
+                    swal({
+                        title: "结束考试失败！",
+                        text: data.message,
+                        type: "warning",
+                        showConfirmButton: false,
+                        showCancelButton: true,
+                        cancelButtonClass: "btn btn-danger btn-fill",
+                        cancelButtonText: "关闭"
+                    });
+                }
+            },
+            error: function () {
+                swal({
+                    title: "结束考试异常，请稍后再试！",
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
+            }
+        });
+        //列表中这行删除
+        table.row($tr).remove().draw();
+        e.preventDefault();
+    });
+});
+
 // 学生端选择课程显示
 function course_change(obj) {
     $(".course_list").hide();
@@ -79,7 +525,7 @@ function chose() {
                     timer: 1000,
                     showConfirmButton: false
                 }, function () {
-                    window.location.href = 'http://' + window.location.hostname + '/student/course/index';
+                    window.location.href = 'http://' + window.location.hostname + '/home/index/myCourse/myCourse/myCourse';
                 });
             } else {
                 swal({
@@ -208,7 +654,7 @@ function question() {
         table.on('click', '.edit', function () {
             $tr = $(this).closest('tr');
             var data = table.row($tr).data();
-            alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
+            window.location.href = 'http://' + window.location.hostname + '/teacher/question/question_list/' + data[0];
         });
         // 题库删除
         table.on('click', '.remove', function (e) {
@@ -256,6 +702,48 @@ function question() {
             table.row($tr).remove().draw();
             e.preventDefault();
         });
+    });
+}
+
+// 新增题库
+function add_question() {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "/teacher/question/add_question",
+        data: $('#add_question_list').serialize(),
+        success: function (data) {
+            if (data.success == true) {
+                swal({
+                    title: "添加成功！",
+                    type: "success",
+                    timer: 1000,
+                    showConfirmButton: false
+                }, function () {
+                    window.location.href = 'http://' + window.location.hostname + '/home/index/question/question/questionlist';
+                });
+            } else {
+                swal({
+                    title: "添加失败！",
+                    text: data.message,
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
+            }
+        },
+        error: function () {
+            swal({
+                title: "添加异常，请稍后再试！",
+                type: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonClass: "btn btn-danger btn-fill",
+                cancelButtonText: "关闭"
+            });
+        }
     });
 }
 
@@ -505,7 +993,7 @@ function startExam(id) {
                     timer: 1000,
                     showConfirmButton: false
                 }, function () {
-                    window.location.href = 'http://' + window.location.hostname + '/home/index/knowledge/question/knowledgelist';
+                    window.location.href = 'http://' + window.location.hostname + '/home/index/course/course/courselist';
                 });
             } else {
                 swal({
@@ -606,6 +1094,38 @@ function addcourse() {
         error: function () {
             swal({
                 title: "新增异常，请稍后再试！",
+                type: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonClass: "btn btn-danger btn-fill",
+                cancelButtonText: "关闭"
+            });
+        }
+    });
+}
+
+// 考试自动阅卷
+function student_exam_end(id) {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "/student/exam/end_exam",
+        data: $('#studentexamid' + id).serialize(),
+        success: function (data) {
+            swal({
+                title: "你答对了" + data.right_num + "题",
+                text: "准确率" + data.accuracy_rate + "%",
+                type: "success",
+                showConfirmButton: true,
+                confirmButtonClass: "btn btn-success btn-fill",
+                confirmButtonText: "确认"
+            }, function () {
+                window.location.href = 'http://' + window.location.hostname + '/home/index/myExam/myExam/myExam';
+            });
+        },
+        error: function () {
+            swal({
+                title: "自动阅卷异常，请稍后再试！",
                 type: "warning",
                 showConfirmButton: false,
                 showCancelButton: true,

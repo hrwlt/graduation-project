@@ -14,16 +14,21 @@
     <h1>HZNU-DODO试题平台</h1>
     <div class="stage">
 
-
         <div class="cbImage">
             <h3>找回密码</h3>
-            <form action="" method="post">
-                <input type="text" class="email" name="email" placeholder="邮箱" required="">
-                <input type="text" class="number" name="phone_number" placeholder="手机号码" required="">
-                <input type="button" class="done" value="提交">
+            <form id="retrieveForm" action="" method="post">
+                <div>
+                    <input name="username" type="text" placeholder="用户名" required="">
+                </div>
+                <div class="radioText">
+                    <input name="identity" type="radio" value="0" checked="checked"><span>教师</span>
+                    <input name="identity" type="radio" value="1"><span>学生</span>
+                </div>
+                <div>
+                    <input id="retrieve" type="button" value="确认">
+                </div>
             </form>
         </div>
-
 
         <div class="cbImage active">
             <h3>登录</h3>

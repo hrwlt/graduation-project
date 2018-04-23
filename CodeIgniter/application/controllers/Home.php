@@ -2,7 +2,18 @@
 
 class Home extends CI_Controller {
 
-    private static $ARRAY_TITLE = array("home" => "首页", "personedit" => "个人中心-基本设置", "personavatar" => "个人中心-头像设置", "personsafe" => "个人中心-安全设置", "question" => "我的试题库", "knowledge" => "我的知识点库", "course" => "我的课程", "exam" => "考试列表", "myCourse" => "我的课程", "myExam" => "我的考试");
+    private static $ARRAY_TITLE = array(
+        "home" => "首页",
+        "personedit" => "个人中心-基本设置",
+        "personavatar" => "个人中心-头像设置",
+        "personsafe" => "个人中心-安全设置",
+        "question" => "我的试题库",
+        "knowledge" => "我的知识点库",
+        "course" => "我的课程",
+        "exam" => "考试列表",
+        "myCourse" => "我的课程",
+        "myExam" => "我的考试"
+    );
 
     public function __construct() {
         parent::__construct();
@@ -44,13 +55,14 @@ class Home extends CI_Controller {
                 //获取学生对应的考试信息
                 $exam_info = $this->exam_model->get_by_course_id($student_course_id);
                 if ($exam_info && $course_info->status == "进行中") {
-                    $exam_info->exam_question = json_decode($exam_info->exam_question, TRUE);
+                    $exam_info->exam_question = json_decode($exam_info->exam_question);
                     $exam_list[] = $exam_info;
                 }
             }
             $data['student_course_lists'] = $course_list;
             $data['student_exam_lists'] = $exam_list;
             $data['course_lists'] = $this->course_model->get_all();
+            $data['option_array'] = ["A、","B、","C、","D、"];
             $this->load->view('student/common', $data);
         } else {
             var_dump('请先登录！');

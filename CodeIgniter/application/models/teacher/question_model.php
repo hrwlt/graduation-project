@@ -11,13 +11,12 @@ class Question_model extends CI_Model {
         return 'question';
     }
 
-    public function add($question_name, $creater, $knowledge_id, $question, $status, $destory = 0) {
+    public function add($question_name, $creater, $knowledge_id, $question, $destory = 0) {
         $data = array(
             'question_name' => $question_name,
             'creater' => $creater,
             'knowledge_id' => $knowledge_id,
             'question' => $question,
-            'status' => $status,
             'destory' => $destory,
             'create_time' => time(),
             'update_time' => time()

@@ -23,7 +23,7 @@
                 <img src="<?php echo $avatar; ?>">
             </div>
             <div class="info">
-                <a><?php echo $username; ?></a>
+                <a href="/home/index/home/home/home"><?php echo $username; ?></a>
             </div>
         </div>
         <div class="sidebar-wrapper">
@@ -146,6 +146,8 @@
         </nav>
         <div class="content">
             <div class="container-fluid">
+
+                <?php $this->load->view('home/index'); ?>
 
                 <?php $this->load->view('persons/personedit'); ?>
 

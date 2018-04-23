@@ -224,3 +224,44 @@ $("#register").click(function () {
         }
     });
 });
+
+$('#retrieve').click(function () {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "retrieve",
+        data: $('#retrieveForm').serialize(),
+        success: function (data) {
+            if (data.success == true) {
+                swal({
+                    title: "找回密码成功，重置密码已发送至你的邮箱！",
+                    type: "success",
+                    timer: 1000,
+                    showConfirmButton: false
+                },function(){
+                    window.location.href = 'http://' + window.location.hostname + '/login/index';
+                });
+            } else {
+                swal({
+                    title: "找回密码失败！",
+                    text: data.message,
+                    type: "warning",
+                    showConfirmButton: false,
+                    showCancelButton: true,
+                    cancelButtonClass: "btn btn-danger btn-fill",
+                    cancelButtonText: "关闭"
+                });
+            }
+        },
+        error: function () {
+            swal({
+                title: "找回密码异常，请稍后再试！",
+                type: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonClass: "btn btn-danger btn-fill",
+                cancelButtonText: "关闭"
+            });
+        }
+    });
+});

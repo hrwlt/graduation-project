@@ -1,5 +1,5 @@
 <!-- 编辑个人信息 -->
-<div class="row" v-if="seen === 'personedit'">
+<div class="row" v-else-if="seen === 'personedit'">
     <div class="col-md-12">
         <div class="card">
             <div class="header">
